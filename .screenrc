@@ -1,0 +1,22 @@
+# ========================================================================
+#
+# .screenrc
+#
+# Configuration file for screen.
+#
+# This configuration was stolen from Brian Wiborg's screenrc repo:
+# https://github.com/baccenfutter/screenrc
+#
+# Interesting articles on this file:
+# - wiki.unbuntusers.de: screen <https://wiki.ubuntuusers.de/Screen/>
+# - Emanuel Duss: Meine Konfigurationsdatei für screen (German)
+#   <https://emanuelduss.ch/2013/02/meine-konfigurationsdatei-fur-screen-screenrc/>
+#
+# This file is part of tomkyle/dotfiles
+# <https://github.com/tomkyle/dotfiles>
+#
+# ========================================================================
+
+startup_message       off             # default: on
+caption always "%{=b dy}%D, %d. %M '%y %{=b dw}%c:%s %{=b dy}{ %{= dg}${USER}@%{= dr}%H %{=b dy}} %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}"
+

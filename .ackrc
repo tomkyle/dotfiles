@@ -1,0 +1,23 @@
+# ========================================================================
+#
+# .ackrc
+#
+# ack is a tool like grep, optimized for programmers.
+#
+# This file contains command-line options that are prepended to the
+# ack command line before processing. Multiple options may live on
+# multiple lines. Lines beginning with a # are ignored.
+#
+# ACK <https://beyondgrep.com/>
+# ACK manual <https://beyondgrep.com/documentation/ack-2.18-man.html>
+# ACK .ackrc <https://beyondgrep.com/documentation/ack-2.18-man.html#THE-.ackrc-FILE>
+#
+# This file is part of tomkyle/dotfiles
+# <https://github.com/tomkyle/dotfiles>
+#
+# ========================================================================
+
+
+--ignore-dir=_schrott
+--ignore-dir=build
+--ignore-dir=var/cache

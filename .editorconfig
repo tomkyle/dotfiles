@@ -1,0 +1,62 @@
+# ========================================================================
+#
+# .editorconfig
+#
+# Defines basic coding styles.
+# See EditorConfig homepage <http://editorconfig.org/>
+#
+# This file is part of tomkyle/dotfiles
+# <https://github.com/tomkyle/dotfiles>
+#
+# ========================================================================
+
+
+# editorconfig.org
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.rb]
+indent_style = space
+indent_size = 2
+
+[*.php]
+indent_style = space
+indent_size = 4
+
+[*.html]
+indent_style = space
+indent_size = 4
+
+[*.tpl]
+indent_style = space
+indent_size = 4
+
+[*.yaml]
+indent_style = space
+indent_size = 4
+
+[*.js]
+indent_style = space
+indent_size = 4
+
+[*.json]
+indent_style = tab
+indent_size = 2
+
+[*.{css,less,scss}]
+indent_style = space
+indent_size = 2
+
+[*.csv]
+indent_style = tab
+indent_size = 8
+
+[*.md]
+trim_trailing_whitespace = false

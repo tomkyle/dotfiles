@@ -1,0 +1,83 @@
+# ========================================================================
+#
+# .gitconfig
+#
+# This file is part of tomkyle/dotfiles
+# <https://github.com/tomkyle/dotfiles>
+#
+# ========================================================================
+
+
+[core]
+	editor = nano
+	precomposeunicode = true
+
+
+[color]
+	ui = auto
+
+
+[alias]
+
+	# List all Git aliases
+	la = "!git config -l | grep alias | cut -c 7-"
+
+
+
+	# =====================================
+	# Branch helpers
+	# =====================================
+	co  = checkout
+
+
+
+	# =====================================
+	# Tag helpers
+	# =====================================
+
+	# Show current tag
+	lt = describe --tags --abbrev=0
+
+
+
+	# =====================================
+	# Status helpers
+	# =====================================
+
+	# shows only changes to files in current directory
+	here = status .
+
+
+
+	# =====================================
+	# Commit helpers
+	# =====================================
+
+	ci  = commit
+	cam = commit -a -m
+
+	# Change last commit message
+	recommit = commit --amend
+
+	# Undo last commit
+	undo = reset HEAD~1
+
+	# Show files from last commit
+	lc  = log ORIG_HEAD.. --stat --no-merges
+
+	# Show last commits and tags, descending, including files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+	# Show last commits and tags, descending
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+
+
+
+
+
+# =====================================
+# Include these local git configs
+# =====================================
+[include]
+  path = ~/.gitconfig.local
+
