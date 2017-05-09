@@ -87,7 +87,7 @@ alias ldots='ls -laA -d .*'
 
 
 # ------------------------------------------------------------------------
-# ACK-GREP
+# ACK-GREP (and Silver searcher replacement )
 # ------------------------------------------------------------------------
 if [[ "$DOTFILES_OS" == "ubuntu" ]]; then
 	alias af="ack-grep --literal"
