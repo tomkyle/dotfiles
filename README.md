@@ -53,6 +53,10 @@ This file contains some common shortcuts. You will want to have your own aliases
 ###.gitconfig
 Many people use `.gitconfig` for storing their username or email or credentials cache lifetime – nothing a config file to bother with. Instead, store them in a `.gitconfig.local`, it will be included automatically.
 
+### .gitignore_global
+List of rules for ignoring files in every Git repository on your computer.
+See the article [https://help.github.com/articles/ignoring-files/](https://help.github.com/articles/ignoring-files/) on GitHub Help.
+
 ###.paths
 This essentially adds `~/bin` and `~/.composer/vendor/bin` to the `$PATH` variable, if they exist. Both `.bashrc` and `.zshrc` will include this file ; if you like to add more paths locally, store them in a file `~/.paths.local` which will then be included as well.
 
