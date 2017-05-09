@@ -69,20 +69,18 @@ ZSH_THEME="risto"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git git-flow osx)
 
-
-
 # User configuration
+
 
 
 
 # ------------------------------------------------------------------------
 # tomkyle/dotfiles: Path Configuration.
 # ------------------------------------------------------------------------
-# export MANPATH="/usr/local/man:$MANPATH"
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPA
 [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
-
-
-
+# ------------------------------------------------------------------------
 
 
 source $ZSH/oh-my-zsh.sh
@@ -104,8 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -116,9 +112,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ------------------------------------------------------------------------
+# End of original .zshrc
+# ------------------------------------------------------------------------
+
+
+
+# ------------------------------------------------------------------------
 # tomkyle/dotfiles: Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
 # ------------------------------------------------------------------------
 
 # Include ~/.bash_aliases
