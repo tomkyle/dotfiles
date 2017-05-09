@@ -96,10 +96,17 @@ if [[ "$DOTFILES_OS" == "ubuntu" ]]; then
 	alias afw="ack-grep --word-regexp"
 
 elif [[ "$DOTFILES_OS" == "osx" ]]; then
-	alias af="ack --literal"
+	alias afl="ack --literal"
+	alias agl="ag --literal"
+
 	alias aff="ack --literal --files-with-matches"
+	alias agf="ag --literal --files-with-matches"
+
 	alias afr="ack --match"
+	alias agr="ag --match"
+
 	alias afw="ack --word-regexp"
+	alias agw="ag --word-regexp"
 
 fi
 
