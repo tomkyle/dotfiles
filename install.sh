@@ -109,6 +109,7 @@ function main() {
 
 			installSymlink "${DOTFILES_DIR_MACOS}/.bash_profile"
 			installSymlink "${DOTFILES_DIR_MACOS}/.bashrc"
+			installSymlink "${DOTFILES_DIR_MACOS}/.profile"
 			#[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
 
 		fi;
