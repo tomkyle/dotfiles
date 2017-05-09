@@ -82,7 +82,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # List all dotfiles in current directory with -la
-alias ldots='ls -la -d .*'
+alias ldots='ls -laA -d .*'
 
 # ------------------------------------------------------------------------
 # ACK-GREP
