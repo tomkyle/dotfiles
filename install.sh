@@ -89,7 +89,6 @@ function main() {
 		installSymlink "${DOTFILES_DIR}/.bash_prompt"
 		installSymlink "${DOTFILES_DIR}/.editorconfig"
 		installSymlink "${DOTFILES_DIR}/.gitconfig"
-		installSymlink "${DOTFILES_DIR}/.gitignore"
 		installSymlink "${DOTFILES_DIR}/.gitignore_global"
 		installSymlink "${DOTFILES_DIR}/.paths"
 		installSymlink "${DOTFILES_DIR}/.screenrc"
