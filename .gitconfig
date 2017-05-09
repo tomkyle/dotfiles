@@ -12,6 +12,9 @@
 	editor = nano
 	precomposeunicode = true
 
+	excludesfile = ~/.gitignore_global
+
+
 
 [color]
 	ui = auto
