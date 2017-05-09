@@ -13,8 +13,9 @@
 
 
 
-# Compiled source #
-###################
+# ------------------------------------------------------------------------
+# Compiled source
+# ------------------------------------------------------------------------
 *.com
 *.class
 *.dll
@@ -22,8 +23,9 @@
 *.o
 *.so
 
-# Packages #
-############
+# ------------------------------------------------------------------------
+# Packages
+# ------------------------------------------------------------------------
 # it's better to unpack these files and commit the raw source
 # git has its own built in compression methods
 *.7z
@@ -35,14 +37,19 @@
 *.tar
 *.zip
 
-# Logs and databases #
-######################
+
+# ------------------------------------------------------------------------
+# Logs and databases
+# ------------------------------------------------------------------------
 *.log
 *.sql
 *.sqlite
 
-# OSX generated files #
-#######################
+
+# ------------------------------------------------------------------------
+# OSX generated files
+# ------------------------------------------------------------------------
+
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -66,9 +73,9 @@ Temporary Items
 .apdisk
 
 
-
-# Linux generated files   #
-###########################
+# ------------------------------------------------------------------------
+# Linux generated files
+# ------------------------------------------------------------------------
 
 # Backup files
 *~
@@ -81,47 +88,9 @@ Temporary Items
 
 
 
-
-# Windows generated files #
-###########################
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-
-
-# Project files      #
-######################
-var/*
-logs/*
-log/*
-vendor
-node_modules
-config.json
-config.yaml
-.htaccess
-phpunit.xml
-
-
-# Workflow files     #
-######################
-_schrott
-tests/build
-build
+# ------------------------------------------------------------------------
+# Project files
+# ------------------------------------------------------------------------
+dotfiles-backups/*
+!dotfiles-backups/README.md
 
