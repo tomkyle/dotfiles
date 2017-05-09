@@ -14,6 +14,9 @@ DOTFILES_PATHS="$HOME/.paths"
 DOTFILES_BASH_ALIASES="$HOME/.bash_aliases"
 
 
+# ------------------------------------------------------------------------
+# Begin of original .zshrc
+# ------------------------------------------------------------------------
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
