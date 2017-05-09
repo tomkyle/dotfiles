@@ -44,7 +44,7 @@ function main() {
 	DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
 
 	BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
-	BACKUP_DIR="${HOME}/.dotfiles-backups"
+	BACKUP_DIR="${DOTFILES_DIR}/dotfiles-backups"
 
 
 
@@ -89,7 +89,7 @@ function main() {
 		installSymlink "${DOTFILES_DIR}/.bash_prompt"
 		installSymlink "${DOTFILES_DIR}/.editorconfig"
 		installSymlink "${DOTFILES_DIR}/.gitconfig"
-		installSymlink "${DOTFILES_DIR}/.gitignore"
+		installSymlink "${DOTFILES_DIR}/.gitignore_global"
 		installSymlink "${DOTFILES_DIR}/.paths"
 		installSymlink "${DOTFILES_DIR}/.screenrc"
 		installSymlink "${DOTFILES_DIR}/.zshrc"
