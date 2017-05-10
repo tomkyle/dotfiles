@@ -136,8 +136,10 @@ alias v="vagrant"
 alias va="vagrant box add"
 alias vai="vagrant init"
 alias vu="vagrant up"
+alias vupv="vagrant up --provider virtualbox"
 alias vh="vagrant halt"
 alias vs="vagrant ssh"
+alias vgs="vagrant global-status"
 
 
 # ------------------------------------------------------------------------
