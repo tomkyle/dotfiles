@@ -85,6 +85,13 @@ alias l='ls -CF'
 alias ldots='ls -laA -d .*'
 
 
+# Shortcut for combining mkdir and cd
+mkd()
+{
+	mkdir -p $1 && cd $1
+}
+export mkd
+
 
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
