@@ -85,6 +85,13 @@ alias l='ls -CF'
 alias ldots='ls -laA -d .*'
 
 
+# Shortcut for combining mkdir and cd
+mkd()
+{
+	mkdir -p $1 && cd $1
+}
+export mkd
+
 
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
@@ -120,6 +127,17 @@ if [[ "$DOTFILES_OS" == "osx" ]]; then
 	alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 	alias buu='brew update; brew update; brew upgrade;'
 fi
+
+# ------------------------------------------------------------------------
+# Vagrant
+# ------------------------------------------------------------------------
+
+alias v="vagrant"
+alias va="vagrant box add"
+alias vai="vagrant init"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vs="vagrant ssh"
 
 
 # ------------------------------------------------------------------------
