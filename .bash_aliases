@@ -121,6 +121,17 @@ if [[ "$DOTFILES_OS" == "osx" ]]; then
 	alias buu='brew update; brew update; brew upgrade;'
 fi
 
+# ------------------------------------------------------------------------
+# Vagrant
+# ------------------------------------------------------------------------
+
+alias v="vagrant"
+alias va="vagrant box add"
+alias vai="vagrant init"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vs="vagrant ssh"
+
 
 # ------------------------------------------------------------------------
 # Composer
