@@ -186,7 +186,7 @@ alias gfrf="git flow release finish -p"
 
 
 # ------------------------------------------------------------------------
-# Typo error fixes
+# Most-used typo errors
 # ------------------------------------------------------------------------
 alias whoch="which"
 
