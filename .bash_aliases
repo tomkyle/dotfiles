@@ -23,9 +23,9 @@ DOTFILES_ALIASES_LOCAL="${HOME}/.bash_aliases.local"
 # ------------------------------------------------------------------------
 # OS Determination
 # ------------------------------------------------------------------------
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
 	DOTFILES_OS="ubuntu"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+elif [[ "${OSTYPE}" == "darwin"* ]]; then
 	DOTFILES_OS="osx"
 else
 	DOTFILES_OS="unknown"
@@ -35,7 +35,7 @@ fi
 # ------------------------------------------------------------------------
 # Aliases for MacOS
 # ------------------------------------------------------------------------
-if [[ "$DOTFILES_OS" == "osx" ]]; then
+if [[ "${DOTFILES_OS}" == "osx" ]]; then
 
 	# Open current directory in new Finder window
 	alias t='open -R ${PWD}'
@@ -57,7 +57,11 @@ fi
 # ------------------------------------------------------------------------
 
 # Show cronlog
-test -d "/var/log/syslog" && alias cronlog="grep CRON /var/log/syslog"
+if [ -d "/var/log/syslog" ]; then
+	alias cronlog="grep CRON /var/log/syslog"
+else
+	echo "Nein";
+fi;
 
 # Show WAN IP
 alias wanip="curl -s http://checkip.dyndns.org/ | grep -o '[[:digit:].]\+'"
@@ -196,7 +200,9 @@ alias whoch="which"
 # Local and private aliases not being provided by this dotfiles repo
 # ------------------------------------------------------------------------
 
-[[ -f "$DOTFILES_ALIASES_LOCAL" ]] && source "$DOTFILES_ALIASES_LOCAL"
+if [ -e "${DOTFILES_ALIASES_LOCAL}" ]; then
+	. "${DOTFILES_ALIASES_LOCAL}"
+fi
 
 
 # ------------------------------------------------------------------------
