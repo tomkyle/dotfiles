@@ -59,8 +59,6 @@ fi
 # Show cronlog
 if [ -d "/var/log/syslog" ]; then
 	alias cronlog="grep CRON /var/log/syslog"
-else
-	echo "Nein";
 fi;
 
 # Show WAN IP
@@ -100,13 +98,13 @@ export mkd
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
 # ------------------------------------------------------------------------
-if [[ "$DOTFILES_OS" == "ubuntu" ]]; then
+if [[ "${DOTFILES_OS}" == "ubuntu" ]]; then
 	alias af="ack-grep --literal"
 	alias aff="ack-grep --literal --files-with-matches"
 	alias afr="ack-grep --match"
 	alias afw="ack-grep --word-regexp"
 
-elif [[ "$DOTFILES_OS" == "osx" ]]; then
+elif [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias afl="ack --literal"
 	alias agl="ag --literal"
 
@@ -127,7 +125,7 @@ fi
 # Homebrew
 # ------------------------------------------------------------------------
 
-if [[ "$DOTFILES_OS" == "osx" ]]; then
+if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 	alias buu='brew update; brew update; brew upgrade;'
 fi
