@@ -173,6 +173,7 @@ alias pushom="git push origin master"
 alias pushod="git push origin develop"
 alias pullom="git pull origin master"
 alias pullod="git pull origin develop"
+alias gfp="git push && gm master && gm develop && git push && gco develop"
 
 
 # ------------------------------------------------------------------------
