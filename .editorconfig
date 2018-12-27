@@ -25,37 +25,14 @@ insert_final_newline = true
 [{.gitignore,.gitignore_global}]
 trim_trailing_whitespace = false
 
-[*.rb]
+[*.{rb,json,css,less,scss}]
 indent_style = space
 indent_size = 2
 
-[*.php]
+[*.{py,php,html,tpl,yaml,yml,js}]
 indent_style = space
 indent_size = 4
 
-[*.html]
-indent_style = space
-indent_size = 4
-
-[*.tpl]
-indent_style = space
-indent_size = 4
-
-[*.yaml]
-indent_style = space
-indent_size = 4
-
-[*.js]
-indent_style = space
-indent_size = 4
-
-[*.json]
-indent_style = tab
-indent_size = 2
-
-[*.{css,less,scss}]
-indent_style = space
-indent_size = 2
 
 [*.csv]
 indent_style = tab
@@ -63,3 +40,7 @@ indent_size = 8
 
 [*.md]
 trim_trailing_whitespace = false
+
+[{package.json,.travis.yml,.scrutinizer.yml}]
+indent_style = space
+indent_size = 2
