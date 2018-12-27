@@ -25,8 +25,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="risto"
+#ZSH_THEME="geoffgarside"
+#ZSH_THEME="maran"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -34,6 +37,14 @@ ZSH_THEME="risto"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
+
+
+# Edit CW:
+# Taken from Repo README: 
+# If you would like oh-my-zsh to automatically upgrade itself without prompting you, set the following in your ~/.zshrc:
+# DISABLE_UPDATE_PROMPT=true
+
+
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -67,7 +78,7 @@ ZSH_THEME="risto"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow osx)
+plugins=(git git-flow-avh osx)
 
 # User configuration
 
@@ -77,9 +88,7 @@ plugins=(git git-flow osx)
 # ------------------------------------------------------------------------
 # tomkyle/dotfiles: Path Configuration.
 # ------------------------------------------------------------------------
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPA
-[[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
+# [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
 # ------------------------------------------------------------------------
 
 
@@ -117,22 +126,48 @@ source $ZSH/oh-my-zsh.sh
 
 
 
+
 # ------------------------------------------------------------------------
-# tomkyle/dotfiles: Alias definitions.
+# tomkyle/dotfiles
 # ------------------------------------------------------------------------
 
-# Include ~/.bash_aliases
+# Path configuration
+[[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
+
+#  Alias definitions.
+#  Include ~/.bash_aliases
 [[ -f "$DOTFILES_BASH_ALIASES" ]] && source $DOTFILES_BASH_ALIASES
 
+# Outro
+unset DOTFILES_PATHS DOTFILES_BASH_ALIASES;
+
 
 
 # ------------------------------------------------------------------------
-# tomkyle/dotfiles: List screen sessions
+# List screen sessions
 # ------------------------------------------------------------------------
+
 # screen -ls
 
 
-# ------------------------------------------------------------------------
-# Outro
-# ------------------------------------------------------------------------
-unset DOTFILES_PATHS DOTFILES_BASH_ALIASES;
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+
+
+# ==> opencolorio
+# OpenColorIO requires several environment variables to be set.
+# You can source the following script in your shell-startup to do that:
+#
+#     /usr/local/share/ocio/setup_ocio.sh
+#
+# Alternatively the documentation describes what env-variables need set:
+#
+#     http://opencolorio.org/installation.html#environment-variables
+#
+# You will require a config for OCIO to be useful. Sample configuration files
+# and reference images can be found at:
+#
+#     http://opencolorio.org/downloads.html
+
+/usr/local/share/ocio/setup_ocio.sh
