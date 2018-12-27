@@ -12,42 +12,32 @@
 # ========================================================================
 
 
-# ------------------------------------------------------------------------
-# Configuration:
-# Name of local paths definition (used below)
-# ------------------------------------------------------------------------
-
-DOTFILES_PATHS_LOCAL="$HOME/.paths.local"
-
-
 
 # ------------------------------------------------------------------------
 # 1. Prepend Homebrew's bin
 # ------------------------------------------------------------------------
-[[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
-[[ -d "/usr/local/bin" ]] && export PATH="/usr/local/bin:$PATH"
+
+### Currently disabled, as they seem to be added somewhere else?!
+# [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
+# [[ -d "/usr/local/bin" ]] && export PATH="/usr/local/bin:$PATH"
 
 
 # ------------------------------------------------------------------------
 # 2. Prepend user's private bin if it exists
 # ------------------------------------------------------------------------
+
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
 
 # ------------------------------------------------------------------------
 # 3. Append composer bin path
 # ------------------------------------------------------------------------
+
 [[ -d "$HOME/.composer/vendor/bin" ]] && export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 
+# ------------------------------------------------------------------------
+# 4. Local ~.paths configuration
+# ------------------------------------------------------------------------
+[[ -f "$HOME/.paths.local" ]] && source "$HOME/.paths.local"
 
-# ------------------------------------------------------------------------
-# Local ~.paths configuration
-# ------------------------------------------------------------------------
-[[ -f "$DOTFILES_PATHS_LOCAL" ]] && source "$DOTFILES_PATHS_LOCAL"
-
-
-# ------------------------------------------------------------------------
-# Outro
-# ------------------------------------------------------------------------
-unset DOTFILES_PATHS_LOCAL;
