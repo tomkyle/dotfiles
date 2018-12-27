@@ -127,7 +127,7 @@ fi
 
 if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-	alias buu='brew update; brew update; brew upgrade;'
+	alias buu='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 fi
 
 # ------------------------------------------------------------------------
@@ -158,14 +158,14 @@ alias cdao="composer dump-autoload --optimize"
 # ------------------------------------------------------------------------
 
 alias pu="phpunit"
-
+alias vpu="vendor/bin/phpunit"
 
 # ------------------------------------------------------------------------
 # Git
 # ------------------------------------------------------------------------
 
 alias ga="git add"
-alias gs="git status"
+alias gits="git status"
 alias gd="git diff"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
@@ -175,7 +175,7 @@ alias pushom="git push origin master"
 alias pushod="git push origin develop"
 alias pullom="git pull origin master"
 alias pullod="git pull origin develop"
-alias gfp="git push && gm master && gm develop && git push && gco develop"
+alias gfp="git push && gco master && gm develop && git push && gco develop"
 
 
 # ------------------------------------------------------------------------
@@ -185,6 +185,7 @@ alias gfp="git push && gm master && gm develop && git push && gco develop"
 alias gffs="git flow feature start"
 alias gfff="git flow feature finish"
 alias gfrs="git flow release start"
+# alias gfrf="git flow release finish"
 alias gfrf="git flow release finish -p"
 
 
@@ -199,7 +200,7 @@ alias whoch="which"
 # ------------------------------------------------------------------------
 
 if [ -e "${DOTFILES_ALIASES_LOCAL}" ]; then
-	. "${DOTFILES_ALIASES_LOCAL}"
+	source "${DOTFILES_ALIASES_LOCAL}"
 fi
 
 
