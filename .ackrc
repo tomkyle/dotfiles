@@ -21,3 +21,5 @@
 --ignore-dir=_schrott
 --ignore-dir=build
 --ignore-dir=var/cache
+--ignore-dir=vendor
+
