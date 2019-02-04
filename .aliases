@@ -62,25 +62,24 @@ fi;
 alias wanip="curl -s http://checkip.dyndns.org/ | grep -o '[[:digit:].]\+'"
 
 
+
 # ------------------------------------------------------------------------
+# File system and directories
+# ------------------------------------------------------------------------
+
 # Quicker navigation
-# ------------------------------------------------------------------------
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-
-# ------------------------------------------------------------------------
 # Directory Listing
-# ------------------------------------------------------------------------
 alias lss='ls -lA1'
 alias lla='ls -la'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ldots='ls -laA -d .*' # List all dotfiles in current directory with -la
-
 
 # Shortcut for combining mkdir and cd
 mkd()
@@ -93,27 +92,18 @@ export mkd
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
 # ------------------------------------------------------------------------
-if [[ "${DOTFILES_OS}" == "ubuntu" ]]; then
-	alias af="ack-grep --literal"
-	alias aff="ack-grep --literal --files-with-matches"
-	alias afr="ack-grep --match"
-	alias afw="ack-grep --word-regexp"
 
-elif [[ "${DOTFILES_OS}" == "osx" ]]; then
-	alias afl="ack --literal"
-	alias agl="ag --literal"
+alias afw="ack --word-regexp"
+alias agw="ag --word-regexp"
 
-	alias aff="ack --literal --files-with-matches"
-	alias agf="ag --literal --files-with-matches"
+alias aff="ack --literal --files-with-matches"
+alias agf="ag --literal --files-with-matches"
 
-	alias afr="ack --match"
-	alias agr="ag --match"
+alias afl="ack --literal"
+alias agl="ag --literal"
 
-	alias afw="ack --word-regexp"
-	alias agw="ag --word-regexp"
-
-fi
-
+alias afr="ack --match"
+alias agr="ag --match"
 
 
 # ------------------------------------------------------------------------
@@ -155,7 +145,9 @@ alias crd="composer require --dev"
 # ------------------------------------------------------------------------
 
 alias pu="phpunit"
-alias vpu="vendor/bin/phpunit"
+alias puf="phpunit --filter"
+alias vpu="./vendor/bin/phpunit"
+alias vpuf="./vendor/bin/phpunit --filter"
 
 
 # ------------------------------------------------------------------------
@@ -183,8 +175,10 @@ alias gfp="git push && gco master && gm develop && git push && gco develop"
 alias gffs="git flow feature start"
 alias gfff="git flow feature finish"
 alias gfrs="git flow release start"
-# alias gfrf="git flow release finish"
 alias gfrf="git flow release finish -p"
+
+alias gfp="git push && git checkout master && git merge develop && git push && git checkout develop"
+
 
 
 # ------------------------------------------------------------------------
