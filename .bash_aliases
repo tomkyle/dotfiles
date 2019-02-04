@@ -155,6 +155,9 @@ alias cu="composer update"
 alias cuo="composer update --optimize-autoloader"
 alias cda="composer dump-autoload"
 alias cdao="composer dump-autoload --optimize"
+alias cr="composer require"
+alias crd="composer require --dev"
+
 
 # ------------------------------------------------------------------------
 # PhpUnit
@@ -162,6 +165,7 @@ alias cdao="composer dump-autoload --optimize"
 
 alias pu="phpunit"
 alias vpu="vendor/bin/phpunit"
+
 
 # ------------------------------------------------------------------------
 # Git
