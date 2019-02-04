@@ -17,8 +17,10 @@
 # 1. Prepend Homebrew's bin
 # ------------------------------------------------------------------------
 
-### Currently disabled, as they seem to be added somewhere else?!
+
 # [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
+
+### Currently disabled, as they seem to be added somewhere else?!
 # [[ -d "/usr/local/bin" ]] && export PATH="/usr/local/bin:$PATH"
 
 
