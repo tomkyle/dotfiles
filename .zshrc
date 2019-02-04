@@ -11,7 +11,7 @@
 # tomkyle/dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
-DOTFILES_BASH_ALIASES="$HOME/.bash_aliases"
+DOTFILES_BASH_ALIASES="$HOME/.aliases"
 
 
 # ------------------------------------------------------------------------
@@ -40,7 +40,7 @@ ZSH_THEME="risto"
 
 
 # Edit CW:
-# Taken from Repo README: 
+# Taken from Repo README:
 # If you would like oh-my-zsh to automatically upgrade itself without prompting you, set the following in your ~/.zshrc:
 # DISABLE_UPDATE_PROMPT=true
 
@@ -135,7 +135,6 @@ source $ZSH/oh-my-zsh.sh
 [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
 
 #  Alias definitions.
-#  Include ~/.bash_aliases
 [[ -f "$DOTFILES_BASH_ALIASES" ]] && source $DOTFILES_BASH_ALIASES
 
 # Outro

@@ -85,7 +85,7 @@ function main() {
 		# Create symlinks
 		# ---------------------------------------------
 		installSymlink "${DOTFILES_DIR}/.ackrc"
-		installSymlink "${DOTFILES_DIR}/.bash_aliases"
+		installSymlink "${DOTFILES_DIR}/.aliases"
 		installSymlink "${DOTFILES_DIR}/.bash_prompt"
 		installSymlink "${DOTFILES_DIR}/.editorconfig"
 		installSymlink "${DOTFILES_DIR}/.gitconfig"

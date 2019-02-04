@@ -1,6 +1,6 @@
 # ========================================================================
 #
-# .bash_aliases
+# .aliases
 #
 # Included by
 # - .bash_profile
@@ -197,8 +197,8 @@ alias whoch="which"
 # Local and private aliases not being provided by this dotfiles repo
 # ------------------------------------------------------------------------
 
-if [ -e "${HOME}/.bash_aliases.local" ]; then
-	source "${HOME}/.bash_aliases.local"
+if [ -e "${HOME}/.aliases.local" ]; then
+	source "${HOME}/.aliases.local"
 fi
 
 
