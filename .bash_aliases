@@ -49,6 +49,10 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias m='open -a "MacDown"'
 
+	# Switch dotfiles in Finder
+	alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
+	alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
+
 fi
 
 
@@ -126,7 +130,6 @@ fi
 # ------------------------------------------------------------------------
 
 if [[ "${DOTFILES_OS}" == "osx" ]]; then
-	alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 	alias buu='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 fi
 
