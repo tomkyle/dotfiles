@@ -14,13 +14,6 @@
 
 
 # ------------------------------------------------------------------------
-# Dotfiles configuration
-# ------------------------------------------------------------------------
-DOTFILES_ALIASES_LOCAL="${HOME}/.bash_aliases.local"
-
-
-
-# ------------------------------------------------------------------------
 # OS Determination
 # ------------------------------------------------------------------------
 if [[ "${OSTYPE}" == "linux-gnu" ]]; then
@@ -86,9 +79,7 @@ alias lla='ls -la'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-# List all dotfiles in current directory with -la
-alias ldots='ls -laA -d .*'
+alias ldots='ls -laA -d .*' # List all dotfiles in current directory with -la
 
 
 # Shortcut for combining mkdir and cd
@@ -206,12 +197,12 @@ alias whoch="which"
 # Local and private aliases not being provided by this dotfiles repo
 # ------------------------------------------------------------------------
 
-if [ -e "${DOTFILES_ALIASES_LOCAL}" ]; then
-	source "${DOTFILES_ALIASES_LOCAL}"
+if [ -e "${HOME}/.bash_aliases.local" ]; then
+	source "${HOME}/.bash_aliases.local"
 fi
 
 
 # ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
-unset DOTFILES_ALIASES_LOCAL DOTFILES_OS;
+unset DOTFILES_OS;
