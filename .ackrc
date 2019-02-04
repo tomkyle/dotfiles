@@ -20,6 +20,25 @@
 
 --ignore-dir=_schrott
 --ignore-dir=build
---ignore-dir=var/cache
+--ignore-dir=bower_components
+--ignore-dir=node_modules
 --ignore-dir=vendor
 
+--ignore-dir=var/cache
+--ignore-dir=var/build
+--ignore-dir=var/templates_c
+--ignore-dir=var/log
+
+--ignore-dir=*/var/cache
+--ignore-dir=*/var/templates_c
+--ignore-dir=*/var/log
+
+--ignore-file=match:composer.lock
+--ignore-file=match:.log
+
+# Legacy stuff
+--ignore-dir=vendor-legacy
+--ignore-dir=tomkyle
+--ignore-dir=tomkyle-core
+--ignore-dir=WERKSTATT/tomkyle
+--ignore-dir=WERKSTATT/tomkyle-core
