@@ -155,13 +155,6 @@ source $ZSH/oh-my-zsh.sh
 #  Alias definitions.
 [[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
 
-
-# Bash git completion
-# https://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion
-
-# [[ -f "~/.git-flow-completion.zsh" ]] && source ~/.git-flow-completion.zsh
-
-
 # Outro
 unset DOTFILES_PATHS DOTFILES_ALIASES;
 
