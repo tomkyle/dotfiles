@@ -92,6 +92,7 @@ plugins=(git)
 
 # Override
 ZSH_THEME="risto"
+export UPDATE_ZSH_DAYS=13
 
 # Add certain plugins
 plugins+=("git-flow-avh")
