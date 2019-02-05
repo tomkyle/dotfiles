@@ -90,7 +90,7 @@ function installSymlink() {
 	if [ -L "${LINKNAME}" ]; then
 		printf " ... backup symlinked file ... "
 		local link_target="$(readlink "${LINKNAME}")"
-		cp "${link_target}" "${BACKUP_TMPDIR}/" && echo "Done."
+		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${LINKNAME}" && echo "Done."
 
 	# Moving regular files
 	elif [ -f "${LINKNAME}" ]; then
