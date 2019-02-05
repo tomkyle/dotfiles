@@ -129,15 +129,15 @@ function installSymlink() {
 }
 
 
-# ---------------------------------------------------------
+# =========================================================
 # The main program
-# ---------------------------------------------------------
+# =========================================================
 
 function main() {
 
-	# =============================================
+	# ---------------------------------------------
 	# Add OS-specific files
-	# =============================================
+	# ---------------------------------------------
 
 	if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${UBUNTU_DOTFILES[@]}" )
@@ -148,9 +148,9 @@ function main() {
 	fi;
 
 
-	# =============================================
+	# ---------------------------------------------
 	# Installation routine
-	# =============================================
+	# ---------------------------------------------
 
 	# Go to Home directory; we'll change back when script finished.
 	cd "${HOME}"
@@ -161,34 +161,42 @@ function main() {
 
 	if [[ $DOTFILES_OVERWRITE =~ ^[Yy]$ ]]; then
 
+		# ---------------------------------------------
 		# Create symlinks
+		# ---------------------------------------------
 		for f in "${INSTALL_FILES[@]}"
 		do
 			installSymlink "${f}"
 		done
 
 
-		# Create real files
+		# ---------------------------------------------
+		# Copy "real" files
+		# ---------------------------------------------
 		for f in "${COMMON_REALFILES[@]}"
 		do
 			installRealFile "${f}"
 		done
 
 
+		# ---------------------------------------------
 		# Move backups from TMP to $HOME
+		# ---------------------------------------------
 		printf "\nMove backups to %s/%s ... " ${BACKUP_DIR} $(basename ${BACKUP_TMPDIR})
 
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
 		echo "Done."
 
+		# ---------------------------------------------
 		# Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
 		# https://github.com/scopatz/nanorc
+		# ---------------------------------------------
 		curl "https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh" | sh
 
 
+		echo ""
 		echo "It is recommended to log in again to apply dotfiles."
-
 
 	else
 		echo "Aborted."
