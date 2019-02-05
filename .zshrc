@@ -159,7 +159,7 @@ source $ZSH/oh-my-zsh.sh
 # Bash git completion
 # https://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion
 
-[[ -f "~/.git-flow-completion.zsh" ]] && source ~/.git-flow-completion.zsh
+# [[ -f "~/.git-flow-completion.zsh" ]] && source ~/.git-flow-completion.zsh
 
 
 # Outro
