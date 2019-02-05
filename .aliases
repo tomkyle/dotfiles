@@ -96,6 +96,16 @@ swap()
 }
 export swap
 
+# https://stackoverflow.com/questions/8377312/how-to-convert-symlink-to-regular-file
+removelink() {
+  if [ -L "$1" ]; then
+  	local link_target="$(readlink "$1")"
+  	rm "$1" && cp "${link_target}" "$1"
+  fi
+}
+export removelink
+
+
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
 # ------------------------------------------------------------------------
