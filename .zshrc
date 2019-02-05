@@ -12,6 +12,7 @@
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
 DOTFILES_ALIASES="$HOME/.aliases"
+DOTFILES_GITFLOW_COMPLETION="$HOME/.git-flow-completion.zsh"
 
 
 # ========================================================================
@@ -95,9 +96,9 @@ ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
 # Add certain plugins
-plugins+=("git-flow-avh")
+plugins+=(git-flow-avh)
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-	plugins+=("osx")
+	plugins+=(osx)
 fi
 
 
@@ -150,20 +151,17 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Path configuration
-[[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
+[[ -f "${DOTFILES_PATHS}" ]] && source "${DOTFILES_PATHS}"
 
-#  Alias definitions.
-[[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
+# Alias definitions.
+[[ -f "${DOTFILES_ALIASES}" ]] && source "${DOTFILES_ALIASES}"
 
-
-# Bash git completion
-# https://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion
-
-[[ -f "~/.git-flow-completion.zsh" ]] && source ~/.git-flow-completion.zsh
-
+# Git flow completion:
+# https://github.com/petervanderdoes/git-flow-completion
+[[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
 
 # Outro
-unset DOTFILES_PATHS DOTFILES_ALIASES;
+unset DOTFILES_PATHS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
 
 
 
