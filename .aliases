@@ -176,6 +176,7 @@ alias ga="git add"
 alias gits="git status"
 alias gst="git status" # BC
 alias gd="git diff"
+alias gco="git checkout"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
 alias gpom="git push origin master"
