@@ -151,14 +151,14 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Path configuration
-[[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
+[[ -f "${DOTFILES_PATHS}" ]] && source "${DOTFILES_PATHS}"
 
 # Alias definitions.
-[[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
+[[ -f "${DOTFILES_ALIASES}" ]] && source "${DOTFILES_ALIASES}"
 
 # Git flow completion:
 # https://github.com/petervanderdoes/git-flow-completion
-[[ -f "$DOTFILES_GITFLOW_COMPLETION" ]] && source $DOTFILES_GITFLOW_COMPLETION
+[[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
 
 # Outro
 unset DOTFILES_PATHS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
