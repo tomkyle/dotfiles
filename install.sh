@@ -86,9 +86,15 @@ function installSymlink() {
 
 	printf "\n%s " "${LINKNAME}"
 
-	# Move existing original to backup directory
-	if [ -f "${LINKNAME}" -o  -L "${LINKNAME}" ]; then
-		printf " ... move to backup: "
+	# Handle symlink, copying its target contents
+	if [ -L "${LINKNAME}" ]; then
+		printf " ... backup symlinked file ... "
+		local link_target="$(readlink "${LINKNAME}")"
+		cp "${link_target}" "${BACKUP_TMPDIR}/" && echo "Done."
+
+	# Moving regular files
+	elif [ -f "${LINKNAME}" ]; then
+		printf " ... move regular file to backup: "
 		mv "${LINKNAME}" "${BACKUP_TMPDIR}/" && echo "Done."
 	fi
 
