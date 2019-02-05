@@ -10,7 +10,6 @@
 #
 # ========================================================================
 
-
 # editorconfig.org
 root = true
 
@@ -22,12 +21,13 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{.gitignore,.gitignore_global}]
-trim_trailing_whitespace = false
-
 [*.rb]
 indent_style = space
 indent_size = 2
+
+[*.py]
+indent_style = space
+indent_size = 4
 
 [*.php]
 indent_style = space
@@ -39,9 +39,9 @@ indent_size = 4
 
 [*.tpl]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
-[*.yaml]
+[*.{yaml,yml}]
 indent_style = space
 indent_size = 4
 
@@ -50,6 +50,10 @@ indent_style = space
 indent_size = 4
 
 [*.json]
+indent_style = tab
+indent_size = 2
+
+[*.toml]
 indent_style = tab
 indent_size = 2
 
@@ -63,3 +67,11 @@ indent_size = 8
 
 [*.md]
 trim_trailing_whitespace = false
+
+[{.gitignore,.gitignore_global}]
+trim_trailing_whitespace = false
+
+[{package.json,.travis.yml,.scrutinizer.yml}]
+indent_style = space
+indent_size = 2
+

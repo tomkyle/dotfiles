@@ -12,42 +12,55 @@
 # ========================================================================
 
 
-# ------------------------------------------------------------------------
-# Configuration:
-# Name of local paths definition (used below)
-# ------------------------------------------------------------------------
-
-DOTFILES_PATHS_LOCAL="$HOME/.paths.local"
-
-
 
 # ------------------------------------------------------------------------
-# 1. Prepend Homebrew's bin
+# 1. Prepend Directories
 # ------------------------------------------------------------------------
-[[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
-[[ -d "/usr/local/bin" ]] && export PATH="/usr/local/bin:$PATH"
 
+DOTFILES_PREPEND_PATHS=(
+	"/usr/local/sbin"
+	"/usr/local/bin"
+	"$HOME/.local/bin"
+	"$HOME/bin"
+)
 
-# ------------------------------------------------------------------------
-# 2. Prepend user's private bin if it exists
-# ------------------------------------------------------------------------
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
-
-
-# ------------------------------------------------------------------------
-# 3. Append composer bin path
-# ------------------------------------------------------------------------
-[[ -d "$HOME/.composer/vendor/bin" ]] && export PATH="$PATH:$HOME/.composer/vendor/bin"
+for ANOTHER_DIR in "${DOTFILES_PREPEND_PATHS[@]}"
+do
+	# echo "Check ${ANOTHER_DIR}"
+	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
+		# echo "Prepend ${ANOTHER_DIR}"
+	    export PATH="${ANOTHER_DIR}:$PATH"
+	fi
+done
 
 
 
 # ------------------------------------------------------------------------
-# Local ~.paths configuration
+# 2. Append Directories
 # ------------------------------------------------------------------------
-[[ -f "$DOTFILES_PATHS_LOCAL" ]] && source "$DOTFILES_PATHS_LOCAL"
+
+DOTFILES_APPEND_PATHS=(
+	"$HOME/.composer/vendor/bin"
+	"/snap/bin"
+)
+
+for ANOTHER_DIR in "${DOTFILES_APPEND_PATHS[@]}"
+do
+	# echo "Check ${ANOTHER_DIR}"
+	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
+		# echo "Append ${ANOTHER_DIR}"
+	    export PATH="$PATH:${ANOTHER_DIR}"
+	fi
+done
+
+
+# ------------------------------------------------------------------------
+# 4. Local ~.paths configuration
+# ------------------------------------------------------------------------
+[[ -f "$HOME/.paths.local" ]] && source "$HOME/.paths.local"
 
 
 # ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
-unset DOTFILES_PATHS_LOCAL;
+unset DOTFILES_PREPEND_PATHS DOTFILES_APPEND_PATHS ANOTHER_DIR;
