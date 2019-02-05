@@ -53,7 +53,7 @@ fi
 # System-related
 # ------------------------------------------------------------------------
 
-# Show cronlog
+# Show cronlog (Linux only)
 if [ -d "/var/log/syslog" ]; then
 	alias cronlog="grep CRON /var/log/syslog"
 fi;
