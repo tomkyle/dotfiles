@@ -59,7 +59,7 @@ if [ -d "/var/log/syslog" ]; then
 fi;
 
 # Show WAN IP
-alias wanip="curl -s http://checkip.dyndns.org/ | grep -o '[[:digit:].]\+'"
+alias wanip="curl -s https://api.ipify.org | grep -o '[[:digit:].]\+'"
 
 
 
