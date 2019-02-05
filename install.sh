@@ -69,7 +69,9 @@ declare -a MACOS_DOTFILES=(
 
 declare -a INSTALL_FILES=()
 
-
+declare -a COMMON_REALFILES=(
+	"${DOTFILES_DIR}/.nanorc"
+)
 
 
 
@@ -81,6 +83,28 @@ function exit_err {
 	echo >&2 "${@}"; exit 1;
 }
 
+
+function installRealFile() {
+	LINK_BASENAME=$(basename ${1})
+	LINKNAME="${HOME}/${LINK_BASENAME}"
+
+	printf "\n%s " "${LINKNAME}"
+
+	# Handle symlink, copying its target contents
+	if [ -L "${LINKNAME}" ]; then
+		printf " ... backup symlinked file ... "
+		local link_target="$(readlink "${LINKNAME}")"
+		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${LINKNAME}" && echo "Done."
+
+	# Moving regular files
+	elif [ -f "${LINKNAME}" ]; then
+		printf " ... move regular file to backup: "
+		mv "${LINKNAME}" "${BACKUP_TMPDIR}/" && echo "Done."
+	fi
+
+	# Create new symlink
+	cp "${1}" "${HOME}"
+}
 
 function installSymlink() {
 	LINK_BASENAME=$(basename ${1})
@@ -144,12 +168,24 @@ function main() {
 		done
 
 
+		# Create real files
+		for f in "${COMMON_REALFILES[@]}"
+		do
+			installRealFile "${f}"
+		done
+
+
 		# Move backups from TMP to $HOME
 		printf "\nMove backups to %s/%s ... " ${BACKUP_DIR} $(basename ${BACKUP_TMPDIR})
 
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
 		echo "Done."
+
+		# Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
+		# https://github.com/scopatz/nanorc
+		curl "https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh" | sh
+
 
 		echo "It is recommended to log in again to apply dotfiles."
 
