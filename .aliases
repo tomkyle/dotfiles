@@ -170,15 +170,20 @@ alias vpuf="./vendor/bin/phpunit --filter"
 
 # ------------------------------------------------------------------------
 # Git
+# Some of these aliases are defined already in Oh-my-Zhs' "git" plugin.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
 # ------------------------------------------------------------------------
 
+# Bash users need these definitions here.
 alias ga="git add"
-alias gits="git status"
-alias gst="git status" # BC
-alias gd="git diff"
-alias gco="git checkout"
-alias gcm="git commit -m"
 alias gcam="git commit -a -m"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gst="git status"
+alias gd="git diff"
+
+# Carsten's own
+alias gits="git status"
 alias gpom="git push origin master"
 alias gpod="git push origin develop"
 alias pushom="git push origin master"
