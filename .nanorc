@@ -7,7 +7,11 @@
 #
 # ========================================================================
 
+set autoindent
+set constantshow
 set mouse
+set smooth
+set tabsize 4
 
 # ========================================================================
 # Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
