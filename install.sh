@@ -69,7 +69,9 @@ declare -a MACOS_DOTFILES=(
 
 declare -a INSTALL_FILES=()
 
-
+declare -a COMMON_REALFILES=(
+	"${DOTFILES_DIR}/.nanorc"
+)
 
 
 
@@ -81,39 +83,46 @@ function exit_err {
 	echo >&2 "${@}"; exit 1;
 }
 
+function createBackup() {
+	local file_basename=$(basename ${1})
+	local dotfile="${HOME}/${file_basename}"
+
+	printf "\n%s " "${dotfile}"
+
+	# Symlinks
+	if [ -L "${dotfile}" ]; then
+		printf " ... backup symlink ... "
+		local link_target="$(readlink "${dotfile}")"
+		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${dotfile}" && echo "Done."
+
+	# Regular files
+	elif [ -f "${dotfile}" ]; then
+		printf " ... backup regular file ... "
+		mv "${dotfile}" "${BACKUP_TMPDIR}/" && echo "Done."
+	fi
+}
+
+
+function installRealFile() {
+	createBackup "${1}"
+	cp "${1}" "${HOME}"
+}
 
 function installSymlink() {
-	LINK_BASENAME=$(basename ${1})
-	LINKNAME="${HOME}/${LINK_BASENAME}"
-
-	printf "\n%s " "${LINKNAME}"
-
-	# Handle symlink, copying its target contents
-	if [ -L "${LINKNAME}" ]; then
-		printf " ... backup symlinked file ... "
-		local link_target="$(readlink "${LINKNAME}")"
-		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${LINKNAME}" && echo "Done."
-
-	# Moving regular files
-	elif [ -f "${LINKNAME}" ]; then
-		printf " ... move regular file to backup: "
-		mv "${LINKNAME}" "${BACKUP_TMPDIR}/" && echo "Done."
-	fi
-
-	# Create new symlink
+	createBackup "${1}"
 	ln -sv "${1}" "${HOME}"
 }
 
 
-# ---------------------------------------------------------
+# =========================================================
 # The main program
-# ---------------------------------------------------------
+# =========================================================
 
 function main() {
 
-	# =============================================
+	# ---------------------------------------------
 	# Add OS-specific files
-	# =============================================
+	# ---------------------------------------------
 
 	if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${UBUNTU_DOTFILES[@]}" )
@@ -121,12 +130,14 @@ function main() {
 	elif [[ "$OSTYPE" == "darwin"* ]]; then
 		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${MACOS_DOTFILES[@]}" )
 
+	else
+		exit_err "Could not determine OS type"
 	fi;
 
 
-	# =============================================
+	# ---------------------------------------------
 	# Installation routine
-	# =============================================
+	# ---------------------------------------------
 
 	# Go to Home directory; we'll change back when script finished.
 	cd "${HOME}"
@@ -135,24 +146,48 @@ function main() {
 	read DOTFILES_OVERWRITE;
 	echo ""
 
-	if [[ $DOTFILES_OVERWRITE =~ ^[Yy]$ ]]; then
+	if [[ "${DOTFILES_OVERWRITE}" =~ ^[Yy]$ ]]; then
 
+		# ---------------------------------------------
 		# Create symlinks
+		# ---------------------------------------------
 		for f in "${INSTALL_FILES[@]}"
 		do
 			installSymlink "${f}"
 		done
 
 
+		# ---------------------------------------------
+		# Copy "real" files
+		# ---------------------------------------------
+		for f in "${COMMON_REALFILES[@]}"
+		do
+			installRealFile "${f}"
+		done
+
+
+		# ---------------------------------------------
 		# Move backups from TMP to $HOME
+		# ---------------------------------------------
 		printf "\nMove backups to %s/%s ... " ${BACKUP_DIR} $(basename ${BACKUP_TMPDIR})
 
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
 		echo "Done."
 
-		echo "It is recommended to log in again to apply dotfiles."
 
+		# ---------------------------------------------
+		# Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
+		# https://github.com/scopatz/nanorc
+		# ---------------------------------------------
+		curl "https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh" | sh 2>&1 > /dev/null
+
+
+		# ---------------------------------------------
+		# Happy End
+		# ---------------------------------------------
+		echo ""
+		echo "It is recommended to log in again to apply dotfiles."
 
 	else
 		echo "Aborted."
