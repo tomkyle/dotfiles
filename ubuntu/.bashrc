@@ -140,6 +140,13 @@ fi
 
 
 # ------------------------------------------------------------------------
+# Bash git completion
+# https://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion
+# ------------------------------------------------------------------------
+
+[[ -f "~/.git-flow-completion.bash" ]] && source ~/.git-flow-completion.bash
+
+# ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
 unset DOTFILES_BASH_PROMPT DOTFILES_ALIASES DOTFILES_PATHS;
