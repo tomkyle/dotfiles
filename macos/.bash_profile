@@ -22,7 +22,7 @@
 # Dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
-DOTFILES_BASH_ALIASES="$HOME/.bash_aliases"
+DOTFILES_ALIASES="$HOME/.aliases"
 DOTFILES_BASH_PROMPT="$HOME/.bash_prompt"
 
 
@@ -35,9 +35,9 @@ DOTFILES_BASH_PROMPT="$HOME/.bash_prompt"
 # ------------------------------------------------------------------------
 # Alias definitions.
 # You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
+# ~/.aliases, instead of adding them here directly.
 # ------------------------------------------------------------------------
-[[ -f "$DOTFILES_BASH_ALIASES" ]] && source "$DOTFILES_BASH_ALIASES"
+[[ -f "$DOTFILES_ALIASES" ]] && source "$DOTFILES_ALIASES"
 
 
 # ------------------------------------------------------------------------
@@ -57,4 +57,4 @@ fi
 # ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
-unset DOTFILES_BASH_PROMPT DOTFILES_BASH_ALIASES DOTFILES_PATHS;
+unset DOTFILES_BASH_PROMPT DOTFILES_ALIASES DOTFILES_PATHS;

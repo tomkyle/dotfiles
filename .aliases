@@ -1,6 +1,6 @@
 # ========================================================================
 #
-# .bash_aliases
+# .aliases
 #
 # Included by
 # - .bash_profile
@@ -10,14 +10,6 @@
 # <https://github.com/tomkyle/dotfiles>
 #
 # ========================================================================
-
-
-
-# ------------------------------------------------------------------------
-# Dotfiles configuration
-# ------------------------------------------------------------------------
-DOTFILES_ALIASES_LOCAL="${HOME}/.bash_aliases.local"
-
 
 
 # ------------------------------------------------------------------------
@@ -49,6 +41,10 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias m='open -a "MacDown"'
 
+	# Switch dotfiles in Finder
+	alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
+	alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
+
 fi
 
 
@@ -56,36 +52,35 @@ fi
 # System-related
 # ------------------------------------------------------------------------
 
-# Show cronlog
+# Show cronlog (Linux only)
 if [ -d "/var/log/syslog" ]; then
 	alias cronlog="grep CRON /var/log/syslog"
 fi;
 
 # Show WAN IP
-alias wanip="curl -s http://checkip.dyndns.org/ | grep -o '[[:digit:].]\+'"
+alias wanip="curl -s https://api.ipify.org | grep -o '[[:digit:].]\+'"
+
 
 
 # ------------------------------------------------------------------------
+# File system and directories
+# ------------------------------------------------------------------------
+
 # Quicker navigation
-# ------------------------------------------------------------------------
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-
-# ------------------------------------------------------------------------
 # Directory Listing
-# ------------------------------------------------------------------------
 alias lss='ls -lA1'
 alias lla='ls -la'
+alias lsa='ls -la' # BC
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-# List all dotfiles in current directory with -la
-alias ldots='ls -laA -d .*'
-
+alias ldots='ls -laA -d .*' # List all dotfiles in current directory with -la
 
 # Shortcut for combining mkdir and cd
 mkd()
@@ -95,30 +90,38 @@ mkd()
 export mkd
 
 
+swap()
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE $2
+}
+export swap
+
+# https://stackoverflow.com/questions/8377312/how-to-convert-symlink-to-regular-file
+removelink() {
+  if [ -L "$1" ]; then
+  	local link_target="$(readlink "$1")"
+  	rm "$1" && cp "${link_target}" "$1"
+  fi
+}
+export removelink
+
+
 # ------------------------------------------------------------------------
 # ACK-GREP (and Silver searcher replacement )
 # ------------------------------------------------------------------------
-if [[ "${DOTFILES_OS}" == "ubuntu" ]]; then
-	alias af="ack-grep --literal"
-	alias aff="ack-grep --literal --files-with-matches"
-	alias afr="ack-grep --match"
-	alias afw="ack-grep --word-regexp"
 
-elif [[ "${DOTFILES_OS}" == "osx" ]]; then
-	alias afl="ack --literal"
-	alias agl="ag --literal"
+alias afw="ack --word-regexp"
+alias agw="ag --word-regexp"
 
-	alias aff="ack --literal --files-with-matches"
-	alias agf="ag --literal --files-with-matches"
+alias aff="ack --literal --files-with-matches"
+alias agf="ag --literal --files-with-matches"
 
-	alias afr="ack --match"
-	alias agr="ag --match"
+alias afl="ack --literal"
+alias agl="ag --literal"
 
-	alias afw="ack --word-regexp"
-	alias agw="ag --word-regexp"
-
-fi
-
+alias afr="ack --match"
+alias agr="ag --match"
 
 
 # ------------------------------------------------------------------------
@@ -126,8 +129,7 @@ fi
 # ------------------------------------------------------------------------
 
 if [[ "${DOTFILES_OS}" == "osx" ]]; then
-	alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-	alias buu='brew update; brew update; brew upgrade;'
+	alias buu='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 fi
 
 # ------------------------------------------------------------------------
@@ -152,12 +154,18 @@ alias cu="composer update"
 alias cuo="composer update --optimize-autoloader"
 alias cda="composer dump-autoload"
 alias cdao="composer dump-autoload --optimize"
+alias cr="composer require"
+alias crd="composer require --dev"
+
 
 # ------------------------------------------------------------------------
 # PhpUnit
 # ------------------------------------------------------------------------
 
 alias pu="phpunit"
+alias puf="phpunit --filter"
+alias vpu="./vendor/bin/phpunit"
+alias vpuf="./vendor/bin/phpunit --filter"
 
 
 # ------------------------------------------------------------------------
@@ -165,7 +173,8 @@ alias pu="phpunit"
 # ------------------------------------------------------------------------
 
 alias ga="git add"
-alias gs="git status"
+alias gits="git status"
+alias gst="git status" # BC
 alias gd="git diff"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
@@ -175,7 +184,7 @@ alias pushom="git push origin master"
 alias pushod="git push origin develop"
 alias pullom="git pull origin master"
 alias pullod="git pull origin develop"
-alias gfp="git push && gm master && gm develop && git push && gco develop"
+alias gfp="git push && gco master && gm develop && git push && gco develop"
 
 
 # ------------------------------------------------------------------------
@@ -198,12 +207,12 @@ alias whoch="which"
 # Local and private aliases not being provided by this dotfiles repo
 # ------------------------------------------------------------------------
 
-if [ -e "${DOTFILES_ALIASES_LOCAL}" ]; then
-	. "${DOTFILES_ALIASES_LOCAL}"
+if [ -e "${HOME}/.aliases.local" ]; then
+	source "${HOME}/.aliases.local"
 fi
 
 
 # ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
-unset DOTFILES_ALIASES_LOCAL DOTFILES_OS;
+unset DOTFILES_OS;

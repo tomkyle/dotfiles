@@ -21,49 +21,105 @@ set -o pipefail
 # set -o xtrace
 
 
+
+# --------------------------------------
+# Directories to work with
+# --------------------------------------
+
+# Absolute path to this script.
+declare DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Where to find the OS-related scripts
+declare DOTFILES_DIR_UBUNTU="${DOTFILES_DIR}/ubuntu"
+declare DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
+
+
+declare BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
+declare BACKUP_DIR="${DOTFILES_DIR}/backups"
+
+
+# --------------------------------------
+# Files to install
+# --------------------------------------
+declare -a COMMON_DOTFILES=(
+	"${DOTFILES_DIR}/.ackrc"
+	"${DOTFILES_DIR}/.aliases"
+	"${DOTFILES_DIR}/.bash_prompt"
+	"${DOTFILES_DIR}/.editorconfig"
+	"${DOTFILES_DIR}/.gitconfig"
+	"${DOTFILES_DIR}/.gitignore_global"
+	"${DOTFILES_DIR}/.paths"
+	"${DOTFILES_DIR}/.screenrc"
+	"${DOTFILES_DIR}/.zshrc"
+)
+
+declare -a UBUNTU_DOTFILES=(
+	"${DOTFILES_DIR_UBUNTU}/.bashrc"
+	"${DOTFILES_DIR_UBUNTU}/.profile"
+	"${DOTFILES_DIR_UBUNTU}/.selected_editor"
+)
+
+declare -a MACOS_DOTFILES=(
+	"${DOTFILES_DIR_MACOS}/.bash_profile"
+	"${DOTFILES_DIR_MACOS}/.bashrc"
+	"${DOTFILES_DIR_MACOS}/.profile"
+)
+
+declare -a INSTALL_FILES=()
+
+
+
+
+
+# --------------------------------------
+# Functions
+# --------------------------------------
+
 function exit_err {
 	echo >&2 "${@}"; exit 1;
 }
 
 
+function installSymlink() {
+	LINK_BASENAME=$(basename ${1})
+	LINKNAME="${HOME}/${LINK_BASENAME}"
+
+	printf "\n%s " "${LINKNAME}"
+
+	# Handle symlink, copying its target contents
+	if [ -L "${LINKNAME}" ]; then
+		printf " ... backup symlinked file ... "
+		local link_target="$(readlink "${LINKNAME}")"
+		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${LINKNAME}" && echo "Done."
+
+	# Moving regular files
+	elif [ -f "${LINKNAME}" ]; then
+		printf " ... move regular file to backup: "
+		mv "${LINKNAME}" "${BACKUP_TMPDIR}/" && echo "Done."
+	fi
+
+	# Create new symlink
+	ln -sv "${1}" "${HOME}"
+}
+
 
 # ---------------------------------------------------------
 # The main program
 # ---------------------------------------------------------
+
 function main() {
 
+	# =============================================
+	# Add OS-specific files
+	# =============================================
 
+	if [[ "$OSTYPE" == "linux-gnu" ]]; then
+		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${UBUNTU_DOTFILES[@]}" )
 
+	elif [[ "$OSTYPE" == "darwin"* ]]; then
+		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${MACOS_DOTFILES[@]}" )
 
-	# Absolute path to this script.
-	DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-
-	# Where to find the OS-related scripts
-	DOTFILES_DIR_UBUNTU="${DOTFILES_DIR}/ubuntu"
-	DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
-
-	BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
-	BACKUP_DIR="${DOTFILES_DIR}/backups"
-
-
-
-
-	function installSymlink() {
-		LINK_BASENAME=$(basename ${1})
-		LINKNAME="${HOME}/${LINK_BASENAME}"
-
-		printf "\n%s " "${LINKNAME}"
-
-		# Move existing original to backup directory
-		if [ -f "${LINKNAME}" -o  -L "${LINKNAME}" ]; then
-			printf " ... move to backup: "
-			mv "${LINKNAME}" "${BACKUP_TMPDIR}/" && echo "Done."
-		fi
-
-		# Create new symlink
-		ln -sv "${1}" "${HOME}"
-	}
+	fi;
 
 
 	# =============================================
@@ -77,50 +133,24 @@ function main() {
 	read DOTFILES_OVERWRITE;
 	echo ""
 
-
 	if [[ $DOTFILES_OVERWRITE =~ ^[Yy]$ ]]; then
 
-
-		# ---------------------------------------------
 		# Create symlinks
-		# ---------------------------------------------
-		installSymlink "${DOTFILES_DIR}/.ackrc"
-		installSymlink "${DOTFILES_DIR}/.bash_aliases"
-		installSymlink "${DOTFILES_DIR}/.bash_prompt"
-		installSymlink "${DOTFILES_DIR}/.editorconfig"
-		installSymlink "${DOTFILES_DIR}/.gitconfig"
-		installSymlink "${DOTFILES_DIR}/.gitignore_global"
-		installSymlink "${DOTFILES_DIR}/.paths"
-		installSymlink "${DOTFILES_DIR}/.screenrc"
-		installSymlink "${DOTFILES_DIR}/.zshrc"
+		for f in "${INSTALL_FILES[@]}"
+		do
+			installSymlink "${f}"
+		done
 
 
-		# ---------------------------------------------
-		# Install files according to OS type
-		# ---------------------------------------------
-		if [[ "$OSTYPE" == "linux-gnu" ]]; then
-
-			installSymlink "${DOTFILES_DIR_UBUNTU}/.bashrc"
-			installSymlink "${DOTFILES_DIR_UBUNTU}/.profile"
-			installSymlink "${DOTFILES_DIR_UBUNTU}/.selected_editor"
-			#[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
-
-		elif [[ "$OSTYPE" == "darwin"* ]]; then
-
-			installSymlink "${DOTFILES_DIR_MACOS}/.bash_profile"
-			installSymlink "${DOTFILES_DIR_MACOS}/.bashrc"
-			installSymlink "${DOTFILES_DIR_MACOS}/.profile"
-			#[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
-
-		fi;
-
-
-		# ---------------------------------------------
 		# Move backups from TMP to $HOME
-		# ---------------------------------------------
 		printf "\nMove backups to %s/%s ... " ${BACKUP_DIR} $(basename ${BACKUP_TMPDIR})
-		mkdir -p "${BACKUP_DIR}"
-		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && echo "Done."
+
+		mkdir -p "${BACKUP_DIR}" && \
+		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
+		echo "Done."
+
+		echo "It is recommended to log in again to apply dotfiles."
+
 
 	else
 		echo "Aborted."
@@ -131,5 +161,5 @@ function main() {
 }
 
 
-main ${@}
+main "${@}"
 
