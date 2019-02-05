@@ -80,7 +80,9 @@ alias lsa='ls -la' # BC
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ldots='ls -laA -d .*' # List all dotfiles in current directory with -la
+
+alias ldots='ls -laA -d .*' # List all dotfiles in current directory
+
 
 # Shortcut for combining mkdir and cd
 mkd()
@@ -90,12 +92,22 @@ mkd()
 export mkd
 
 
+# List all symlinks in current directory
+lsym()
+{
+	ls -la ${1:-.} | grep "\->"
+}
+export lsym
+
+
+# Swap files
 swap()
 {
     local TMPFILE=tmp.$$
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE $2
 }
 export swap
+
 
 # https://stackoverflow.com/questions/8377312/how-to-convert-symlink-to-regular-file
 removelink() {
@@ -105,6 +117,7 @@ removelink() {
   fi
 }
 export removelink
+
 
 
 # ------------------------------------------------------------------------
