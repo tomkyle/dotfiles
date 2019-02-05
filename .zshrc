@@ -11,40 +11,41 @@
 # tomkyle/dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
-DOTFILES_ALIASES="$HOME/.aliases"
+DOTFILES_BASH_ALIASES="$HOME/.bash_aliases"
 
 
-# ------------------------------------------------------------------------
+# ========================================================================
 # Begin of original .zshrc
-# ------------------------------------------------------------------------
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/templates/zshrc.zsh-template
+# ========================================================================
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="risto"
-#ZSH_THEME="geoffgarside"
-#ZSH_THEME="maran"
-
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-
-
-# Edit CW:
-# Taken from Repo README:
-# If you would like oh-my-zsh to automatically upgrade itself without prompting you, set the following in your ~/.zshrc:
-# DISABLE_UPDATE_PROMPT=true
-
-
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -68,24 +69,48 @@ ZSH_THEME="risto"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow-avh osx)
-
-# User configuration
+plugins=(git)
 
 
+# ------------------------------------------------------------------------
+# BEGIN tomkyle/dotfiles snippet:
+# ------------------------------------------------------------------------
+
+# Override
+ZSH_THEME="risto"
+
+# Add certain plugins
+plugins+=("git-flow-avh")
+if [[ "${OSTYPE}" == "darwin"* ]]; then
+	plugins+=("osx")
+fi
+
+
+
+# ------------------------------------------------------------------------
+# ^ END tomkyle/dotfiles snippet.
+# Below the rest of the original .zshrc
+# ------------------------------------------------------------------------
 
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -101,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -112,47 +137,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# ------------------------------------------------------------------------
+# ========================================================================
 # ^^^ End of original .zshrc
+# ========================================================================
+
+
+
+# ------------------------------------------------------------------------
+# tomkyle/dotfiles: Path Configuration.
 # ------------------------------------------------------------------------
 
-
-
-
-# ------------------------------------------------------------------------
-# tomkyle/dotfiles
-# ------------------------------------------------------------------------
 
 # Path configuration
 [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
 
 #  Alias definitions.
-[[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
+[[ -f "$DOTFILES_BASH_ALIASES" ]] && source $DOTFILES_BASH_ALIASES
 
 # Outro
-unset DOTFILES_PATHS DOTFILES_ALIASES;
+unset DOTFILES_PATHS DOTFILES_BASH_ALIASES;
 
 
 
-
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-
-
-# ==> opencolorio
-# OpenColorIO requires several environment variables to be set.
-# You can source the following script in your shell-startup to do that:
-#
-#     /usr/local/share/ocio/setup_ocio.sh
-#
-# Alternatively the documentation describes what env-variables need set:
-#
-#     http://opencolorio.org/installation.html#environment-variables
-#
-# You will require a config for OCIO to be useful. Sample configuration files
-# and reference images can be found at:
-#
-#     http://opencolorio.org/downloads.html
-
-[[ -f "/usr/local/share/ocio/setup_ocio.sh" ]] && source /usr/local/share/ocio/setup_ocio.sh
