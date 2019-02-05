@@ -55,6 +55,16 @@ fi
 
 
 # ------------------------------------------------------------------------
+# Bash git completion
+# https://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion
+# ------------------------------------------------------------------------
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+ . `brew --prefix`/etc/bash_completion
+fi
+
+
+# ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
 unset DOTFILES_BASH_PROMPT DOTFILES_ALIASES DOTFILES_PATHS;

@@ -48,6 +48,8 @@ declare -a COMMON_DOTFILES=(
 	"${DOTFILES_DIR}/.editorconfig"
 	"${DOTFILES_DIR}/.gitconfig"
 	"${DOTFILES_DIR}/.gitignore_global"
+	"${DOTFILES_DIR}/.git-flow-completion.bash"
+	"${DOTFILES_DIR}/.git-flow-completion.zsh"
 	"${DOTFILES_DIR}/.paths"
 	"${DOTFILES_DIR}/.screenrc"
 	"${DOTFILES_DIR}/.zshrc"
