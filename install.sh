@@ -184,6 +184,15 @@ function main() {
 
 
 		# ---------------------------------------------
+		# Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
+		# https://github.com/scopatz/nanorc
+		#
+		# DOES NOT WORK EITHER
+		# ---------------------------------------------
+		# git clone https://github.com/bobthecow/git-flow-completion ~/.oh-my-zsh/custom/plugins/git-flow-completion
+
+
+		# ---------------------------------------------
 		# Happy End
 		# ---------------------------------------------
 		echo ""

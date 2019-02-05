@@ -158,7 +158,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Git flow completion:
 # https://github.com/petervanderdoes/git-flow-completion
-[[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
+# [[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
 
 # Outro
 unset DOTFILES_PATHS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
