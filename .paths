@@ -20,6 +20,7 @@
 DOTFILES_PREPEND_PATHS=(
 	"/usr/local/sbin"
 	"/usr/local/bin"
+	"$HOME/.local/bin"
 	"$HOME/bin"
 )
 
