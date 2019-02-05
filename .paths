@@ -49,7 +49,7 @@ do
 	# echo "Check ${ANOTHER_DIR}"
 	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
 		# echo "Append ${ANOTHER_DIR}"
-	    export PATH="${ANOTHER_DIR}:$PATH"
+	    export PATH="$PATH:${ANOTHER_DIR}"
 	fi
 done
 
