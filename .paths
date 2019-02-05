@@ -14,28 +14,42 @@
 
 
 # ------------------------------------------------------------------------
-# 1. Prepend Homebrew's bin
+# 1. Prepend Directories
 # ------------------------------------------------------------------------
 
+DOTFILES_PREPEND_PATHS=(
+	"/usr/local/sbin"
+	"/usr/local/bin"
+	"$HOME/bin"
+)
 
-# [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
+for ANOTHER_DIR in "${DOTFILES_PREPEND_PATHS[@]}"
+do
+	echo "Check ${ANOTHER_DIR}"
+	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
+		echo "Prepend ${ANOTHER_DIR}"
+	    export PATH="${ANOTHER_DIR}:$PATH"
+	fi
+done
 
-### Currently disabled, as they seem to be added somewhere else?!
-# [[ -d "/usr/local/bin" ]] && export PATH="/usr/local/bin:$PATH"
 
 
 # ------------------------------------------------------------------------
-# 2. Prepend user's private bin if it exists
+# 2. Append Directories
 # ------------------------------------------------------------------------
 
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+DOTFILES_APPEND_PATHS=(
+	"$HOME/.composer/vendor/bin"
+)
 
-
-# ------------------------------------------------------------------------
-# 3. Append composer bin path
-# ------------------------------------------------------------------------
-
-[[ -d "$HOME/.composer/vendor/bin" ]] && export PATH="$PATH:$HOME/.composer/vendor/bin"
+for ANOTHER_DIR in "${DOTFILES_APPEND_PATHS[@]}"
+do
+	echo "Check ${ANOTHER_DIR}"
+	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
+		echo "Append ${ANOTHER_DIR}"
+	    export PATH="${ANOTHER_DIR}:$PATH"
+	fi
+done
 
 
 # ------------------------------------------------------------------------
@@ -43,3 +57,8 @@
 # ------------------------------------------------------------------------
 [[ -f "$HOME/.paths.local" ]] && source "$HOME/.paths.local"
 
+
+# ------------------------------------------------------------------------
+# Outro
+# ------------------------------------------------------------------------
+unset DOTFILES_PREPEND_PATHS DOTFILES_APPEND_PATHS ANOTHER_DIR;
