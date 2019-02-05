@@ -11,7 +11,7 @@
 # tomkyle/dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
-DOTFILES_BASH_ALIASES="$HOME/.aliases"
+DOTFILES_ALIASES="$HOME/.aliases"
 
 
 # ------------------------------------------------------------------------
@@ -84,14 +84,6 @@ plugins=(git git-flow-avh osx)
 
 
 
-
-# ------------------------------------------------------------------------
-# tomkyle/dotfiles: Path Configuration.
-# ------------------------------------------------------------------------
-# [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
-# ------------------------------------------------------------------------
-
-
 source $ZSH/oh-my-zsh.sh
 
 
@@ -135,18 +127,12 @@ source $ZSH/oh-my-zsh.sh
 [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
 
 #  Alias definitions.
-[[ -f "$DOTFILES_BASH_ALIASES" ]] && source $DOTFILES_BASH_ALIASES
+[[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
 
 # Outro
-unset DOTFILES_PATHS DOTFILES_BASH_ALIASES;
+unset DOTFILES_PATHS DOTFILES_ALIASES;
 
 
-
-# ------------------------------------------------------------------------
-# List screen sessions
-# ------------------------------------------------------------------------
-
-# screen -ls
 
 
 
@@ -169,4 +155,4 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #
 #     http://opencolorio.org/downloads.html
 
-/usr/local/share/ocio/setup_ocio.sh
+[[ -f "/usr/local/share/ocio/setup_ocio.sh" ]] && source /usr/local/share/ocio/setup_ocio.sh
