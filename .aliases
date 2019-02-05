@@ -11,7 +11,9 @@
 #
 # ========================================================================
 
-
+echo "========================================================="
+echo ".aliases"
+echo "========================================================="
 
 # ------------------------------------------------------------------------
 # OS Determination
@@ -76,6 +78,8 @@ alias .....="cd ../../../.."
 # Directory Listing
 alias lss='ls -lA1'
 alias lla='ls -la'
+alias lsa='ls -la' # BC
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -173,6 +177,7 @@ alias vpuf="./vendor/bin/phpunit --filter"
 
 alias ga="git add"
 alias gits="git status"
+alias gst="git status" # BC
 alias gd="git diff"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
@@ -214,3 +219,7 @@ fi
 # Outro
 # ------------------------------------------------------------------------
 unset DOTFILES_OS;
+
+echo "========================================================="
+echo "^^^END OF .aliases"
+echo "========================================================="
