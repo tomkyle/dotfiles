@@ -15,7 +15,9 @@ File | Purpose
 `.screenrc` | Screen session info in shell's bottom line
 `.zshrc` | from [Oh My ZSH!](http://ohmyz.sh/), using the [risto theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#risto). 
 
-## Dotfiles for Ubuntu
+## OS-specific dotfiles
+
+### Ubuntu
 
 The installer will put these files from the **ubuntu/** directory into your home folder:
 
@@ -23,9 +25,9 @@ The installer will put these files from the **ubuntu/** directory into your home
 - `.profile`
 - `.selected_editor`
 
-## Dotfiles for Mac OSX
+### MacOS
 
-The installer will put these files from the **osx** directory into your home folder:
+The installer will put these files from the **osx**/ directory into your home folder:
 
 - `.bashrc`
 - `.bash_profile`
