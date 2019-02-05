@@ -11,7 +11,7 @@
 # tomkyle/dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
-DOTFILES_BASH_ALIASES="$HOME/.bash_aliases"
+DOTFILES_ALIASES="$HOME/.aliases"
 
 
 # ========================================================================
@@ -152,10 +152,10 @@ source $ZSH/oh-my-zsh.sh
 [[ -f "$DOTFILES_PATHS" ]] && source $DOTFILES_PATHS
 
 #  Alias definitions.
-[[ -f "$DOTFILES_BASH_ALIASES" ]] && source $DOTFILES_BASH_ALIASES
+[[ -f "$DOTFILES_ALIASES" ]] && source $DOTFILES_ALIASES
 
 # Outro
-unset DOTFILES_PATHS DOTFILES_BASH_ALIASES;
+unset DOTFILES_PATHS DOTFILES_ALIASES;
 
 
 
