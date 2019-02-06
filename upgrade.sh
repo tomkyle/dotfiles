@@ -25,15 +25,24 @@ set -o pipefail
 # Directories to work with
 # --------------------------------------
 
-# Absolute path to this script.
-declare DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+declare DOTFILES_DIR
+declare OLD_PWD
 
+# Absolute path to this script.
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Where we are right now
 OLD_PWD="${PWD}"
 
-cd "${DOTFILES_DIR}" && git pull && ./install.sh
 
-cd "${OLD_PWD}"
+# --------------------------------------
+# Business
+# --------------------------------------
 
+cd "${DOTFILES_DIR}" && git pull && ./install.sh && cd "${OLD_PWD}"
+
+# Outro
+unset DOTFILES_DIR OLD_PWD;
 
 
 
