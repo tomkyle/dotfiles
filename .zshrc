@@ -11,6 +11,7 @@
 # tomkyle/dotfiles configuration
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
+DOTFILES_LESS="$HOME/.lessrc"
 DOTFILES_ALIASES="$HOME/.aliases"
 DOTFILES_GITFLOW_COMPLETION="$HOME/.git-flow-completion.zsh"
 
@@ -160,8 +161,11 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/petervanderdoes/git-flow-completion
 # [[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
 
+# LESS pager config
+[[ -f "${DOTFILES_LESS}" ]] && source "${DOTFILES_LESS}"
+
 # Outro
-unset DOTFILES_PATHS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
+unset DOTFILES_PATHS DOTFILES_LESS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
 
 
 
