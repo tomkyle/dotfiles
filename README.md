@@ -47,6 +47,16 @@ This installation notes are heavily inspired by [Mathias Bynens' dotfiles repo.]
 
 
 
+## Upgrading
+
+Call the **upgrade.sh** script to update the local `dotfiles` repository and call the installer again:
+
+```bash
+$ ~/dotfiles/upgrade.sh
+```
+
+
+
 ## Integrate with your system
 
 ### .aliases
@@ -76,12 +86,16 @@ This essentially is the default `.zshrc` from [Oh My ZSH!](http://ohmyz.sh/). It
 
 
 
+## Development
 
-## Updating
-
-To update, update your local `dotfiles` repository and call installer:
+It is recommended to use **git-flow-avh**
 
 ```bash
-$ git pull
-$ ./install.sh
+# bash 
+git clone https://github.com/tomkyle/dotfiles.git
+cd dotfiles
+git flow init -d
+
+# should be now on branch 'develop'
 ```
+
