@@ -14,49 +14,66 @@
 
 
 # ------------------------------------------------------------------------
-# 1. Prepend Directories
+# 1. SetUp
 # ------------------------------------------------------------------------
 
-DOTFILES_PREPEND_PATHS=(
+# This optional file may contain local PATH amendments.
+# If it exists, it will included at the end of this file.
+
+DOTFILE_LOCAL_PATHS="${HOME}/.paths.local"
+
+
+# These directories will be prepended to the $PATH variable,
+# if they exist.
+declare -a DOTFILES_PREPEND_PATHS=(
 	"/usr/local/sbin"
 	"/usr/local/bin"
 	"$HOME/.local/bin"
 	"$HOME/bin"
 )
 
-for ANOTHER_DIR in "${DOTFILES_PREPEND_PATHS[@]}"
-do
-	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
-	    export PATH="${ANOTHER_DIR}:$PATH"
-	fi
-done
 
-
-
-# ------------------------------------------------------------------------
-# 2. Append Directories
-# ------------------------------------------------------------------------
-
-DOTFILES_APPEND_PATHS=(
+# These will be apppended to the $PATH variable,
+# if they exist.
+declare -a DOTFILES_APPEND_PATHS=(
 	"$HOME/.composer/vendor/bin"
 	"/snap/bin"
 )
 
-for ANOTHER_DIR in "${DOTFILES_APPEND_PATHS[@]}"
+
+
+# ------------------------------------------------------------------------
+# 2. $PATH amendments
+# ------------------------------------------------------------------------
+
+
+# Prepend Directories
+for some_dir in "${DOTFILES_PREPEND_PATHS[@]}"
 do
-	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
-	    export PATH="$PATH:${ANOTHER_DIR}"
+	if [ -d "${some_dir}" ] && [[ ${PATH} != *"${some_dir}"* ]]; then
+	    export PATH="${some_dir}:${PATH}"
+	fi
+done
+
+
+
+# Append Directories
+for some_dir in "${DOTFILES_APPEND_PATHS[@]}"
+do
+	if [ -d "${some_dir}" ] && [[ ${PATH} != *"${some_dir}"* ]]; then
+	    export PATH="${PATH}:${some_dir}"
 	fi
 done
 
 
 # ------------------------------------------------------------------------
-# 4. Local ~.paths configuration
+# 3. Local ~.paths configuration
 # ------------------------------------------------------------------------
-[[ -f "$HOME/.paths.local" ]] && source "$HOME/.paths.local"
+
+[ -f "${DOTFILE_LOCAL_PATHS}" ] && source "${DOTFILE_LOCAL_PATHS}"
 
 
 # ------------------------------------------------------------------------
 # Outro
 # ------------------------------------------------------------------------
-unset DOTFILES_PREPEND_PATHS DOTFILES_APPEND_PATHS ANOTHER_DIR;
+unset DOTFILES_PREPEND_PATHS DOTFILES_APPEND_PATHS DOTFILE_LOCAL_PATHS some_dir;
