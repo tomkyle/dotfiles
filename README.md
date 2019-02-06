@@ -59,6 +59,15 @@ Many people use `.gitconfig` for storing their username or email or credentials 
 List of rules for ignoring files in every Git repository on your computer.
 See the article [https://help.github.com/articles/ignoring-files/](https://help.github.com/articles/ignoring-files/) on GitHub Help.
 
+### .lessrc
+
+Some configuration for the *less* command, after Top Bug Net's article [“Make the less Command More Powerful”](https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/)
+
+### .nanorc
+
+Nano editor configuration, with syntax hightlighting.
+**N.B.** this file will not be installed as regular file rather than symlink.
+
 ### .paths
 This essentially adds `~/bin` and `~/.composer/vendor/bin` to the `$PATH` variable, if they exist. Both `.bashrc` and `.zshrc` will include this file ; if you like to add more paths locally, store them in a file `~/.paths.local` which will then be included as well.
 
