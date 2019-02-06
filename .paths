@@ -26,9 +26,7 @@ DOTFILES_PREPEND_PATHS=(
 
 for ANOTHER_DIR in "${DOTFILES_PREPEND_PATHS[@]}"
 do
-	# echo "Check ${ANOTHER_DIR}"
 	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
-		# echo "Prepend ${ANOTHER_DIR}"
 	    export PATH="${ANOTHER_DIR}:$PATH"
 	fi
 done
@@ -46,9 +44,7 @@ DOTFILES_APPEND_PATHS=(
 
 for ANOTHER_DIR in "${DOTFILES_APPEND_PATHS[@]}"
 do
-	# echo "Check ${ANOTHER_DIR}"
 	if [ -d ${ANOTHER_DIR} ] && [[ ${PATH} != *"${ANOTHER_DIR}"* ]]; then
-		# echo "Append ${ANOTHER_DIR}"
 	    export PATH="$PATH:${ANOTHER_DIR}"
 	fi
 done
