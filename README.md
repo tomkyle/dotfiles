@@ -21,16 +21,18 @@ File | Purpose
 
 The installer will put these files from the **ubuntu/** directory into your home folder:
 
-- `.bashrc`
-- `.profile`
-- `.selected_editor`
+- **.bashrc**
+- **.profile**
+- **.selected_editor**
 
 ### MacOS
 
 The installer will put these files from the **osx**/ directory into your home folder:
 
-- `.bashrc`
-- `.bash_profile`
+- **.bashrc**
+- **.bash_profile**
+- **.profile**
+- **Brewfile**
 
 
 
@@ -41,6 +43,9 @@ You can clone the repository wherever you want. The `install.sh` script will sym
 ```bash
 $ git clone https://github.com/tomkyle/dotfiles.git dotfiles
 $ dotfiles/install.sh
+
+# On MacOS, run after installation:
+$ brew bundle install
 ```
 
 This installation notes are heavily inspired by [Mathias Bynens' dotfiles repo.](https://github.com/mathiasbynens/dotfiles)
