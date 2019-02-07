@@ -142,7 +142,7 @@ alias agr="ag --match"
 # ------------------------------------------------------------------------
 
 if [[ "${DOTFILES_OS}" == "osx" ]]; then
-	alias buu='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+	alias buu='brew update; brew upgrade; brew cleanup; brew doctor'
 fi
 
 # ------------------------------------------------------------------------
