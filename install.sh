@@ -36,7 +36,7 @@ declare DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
 
 declare BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
 declare BACKUP_DIR="${DOTFILES_DIR}/backups"
-
+declare NANO_DIR="${HOME}/.nano/"
 
 # --------------------------------------
 # Files to install
@@ -184,16 +184,16 @@ function main() {
 
 
 		# ---------------------------------------------
-		# Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
-		# https://github.com/scopatz/nanorc
+		# Nano Syntax Highlighting
 		# ---------------------------------------------
+
+ 		mkdir -p "${NANO_DIR}"
+ 		cp ${DOTFILES_DIR}/.nano/*nanorc "${NANO_DIR}/"
+
+		### Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
+		### https://github.com/scopatz/nanorc
 		curl "https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh" | sh 2>&1 > /dev/null
 
-
-		# ---------------------------------------------
-		# DOES NOT WORK
-		# ---------------------------------------------
-		# git clone https://github.com/bobthecow/git-flow-completion ~/.oh-my-zsh/custom/plugins/git-flow-completion
 
 
 		# ---------------------------------------------
