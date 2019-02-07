@@ -1,3 +1,12 @@
+# ========================================================================
+#
+# Brewfile
+#
+# This file is part of tomkyle/dotfiles
+# <https://github.com/tomkyle/dotfiles>
+#
+# ========================================================================
+
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
