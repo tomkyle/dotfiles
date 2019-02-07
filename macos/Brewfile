@@ -13,6 +13,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
+# Mac App Store CLI
+brew "mas"
 
 # Shell stuff
 brew "zsh"
