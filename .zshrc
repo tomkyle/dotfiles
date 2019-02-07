@@ -17,14 +17,9 @@ DOTFILES_GITFLOW_COMPLETION="$HOME/.git-flow-completion.zsh"
 
 
 
-# Git flow completion:
-# https://github.com/petervanderdoes/git-flow-completion
-[[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
-
-
 
 # ========================================================================
-# Begin of original .zshrc
+# Begin of original Oh-my-zsh's .zshrc
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/templates/zshrc.zsh-template
 # ========================================================================
 
@@ -110,7 +105,6 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 fi
 
 
-
 # ------------------------------------------------------------------------
 # ^ END tomkyle/dotfiles snippet.
 # Below the rest of the original .zshrc
@@ -154,7 +148,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # ------------------------------------------------------------------------
-# tomkyle/dotfiles: Path Configuration.
+# tomkyle/dotfiles
 # ------------------------------------------------------------------------
 
 
@@ -166,6 +160,11 @@ source $ZSH/oh-my-zsh.sh
 
 # LESS pager config
 [[ -f "${DOTFILES_LESS}" ]] && source "${DOTFILES_LESS}"
+
+# Git flow completion:
+# https://github.com/petervanderdoes/git-flow-completion
+[[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
+
 
 # Outro
 unset DOTFILES_PATHS DOTFILES_LESS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
