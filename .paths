@@ -28,6 +28,7 @@ DOTFILE_LOCAL_PATHS="${HOME}/.paths.local"
 declare -a DOTFILES_PREPEND_PATHS=(
 	"/usr/local/sbin"
 	"/usr/local/bin"
+    "/home/linuxbrew/.linuxbrew/bin"
 	"$HOME/.local/bin"
 	"$HOME/bin"
 )
