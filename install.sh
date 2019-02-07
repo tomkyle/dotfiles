@@ -200,7 +200,7 @@ function main() {
 		# ---------------------------------------------
 		echo ""
 		echo "• You may want to install homebrew/linuxbrew formulae."
-		echo "  Go to your home directory and run 'brew bundle install'
+		echo "  Go to your home directory and run 'brew bundle install'"
 		echo ""
 		echo "• It is recommended to log in again to apply dotfiles."
 
