@@ -36,7 +36,7 @@ declare DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
 
 declare BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
 declare BACKUP_DIR="${DOTFILES_DIR}/backups"
-declare NANO_DIR="${HOME}/.nano/"
+
 
 # --------------------------------------
 # Files to install
@@ -51,6 +51,8 @@ declare -a COMMON_DOTFILES=(
 	"${DOTFILES_DIR}/.git-flow-completion.bash"
 	"${DOTFILES_DIR}/.git-flow-completion.zsh"
 	"${DOTFILES_DIR}/.lessrc"
+	"${DOTFILES_DIR}/.nanorc"
+	"${DOTFILES_DIR}/.nano"
 	"${DOTFILES_DIR}/.paths"
 	"${DOTFILES_DIR}/.screenrc"
 	"${DOTFILES_DIR}/.zshrc"
@@ -72,10 +74,6 @@ declare -a MACOS_DOTFILES=(
 
 declare -a INSTALL_FILES=()
 
-declare -a COMMON_REALFILES=(
-	"${DOTFILES_DIR}/.nanorc"
-)
-
 
 
 # --------------------------------------
@@ -87,37 +85,33 @@ function exit_err {
 }
 
 function createBackup() {
+	local dotfile
+	dotfile="${1}"
+
+	# Symlinks
+	if [ -L "${dotfile}" ]; then
+		local link_target
+		link_target="$(readlink "${dotfile}")"
+		cp -R "${link_target}" "${BACKUP_TMPDIR}/" && rm -Rf "${dotfile}"
+
+	# Regular files
+	elif [ -f "${dotfile}" ]; then
+		mv "${dotfile}" "${BACKUP_TMPDIR}/"
+	fi
+}
+
+function installSymlink() {
 	local file_basename
 	local dotfile
 
 	file_basename=$(basename ${1})
 	dotfile="${HOME}/${file_basename}"
+	printf "${dotfile} "
 
-	printf "\n%s " "${dotfile}"
+	createBackup "${dotfile}" && \
+	ln -s "${1}" "${HOME}" && \
+	echo "...done."
 
-	# Symlinks
-	if [ -L "${dotfile}" ]; then
-		local link_target
-		printf " ... backup symlink ... "
-		link_target="$(readlink "${dotfile}")"
-		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${dotfile}" && echo "Done."
-
-	# Regular files
-	elif [ -f "${dotfile}" ]; then
-		printf " ... backup regular file ... "
-		mv "${dotfile}" "${BACKUP_TMPDIR}/" && echo "Done."
-	fi
-}
-
-
-function installRealFile() {
-	createBackup "${1}"
-	cp "${1}" "${HOME}"
-}
-
-function installSymlink() {
-	createBackup "${1}"
-	ln -sv "${1}" "${HOME}"
 }
 
 
@@ -128,16 +122,15 @@ function installSymlink() {
 function main() {
 
 
-	# Go to Dotfiles directory; we'll change back when script finished.
-	cd "${DOTFILES_DIR}"
-
 	# ---------------------------------------------
 	# Load and update Git submodules
 	# ---------------------------------------------
 
+	cd "${DOTFILES_DIR}"
 	printf "Install submodules ... ";
 	git submodule init && git submodule update --remote  && echo "Done."
 	echo ""
+
 
 	# ---------------------------------------------
 	# Add OS-specific files
@@ -160,7 +153,6 @@ function main() {
 
 	# Go to Home directory; we'll change back when script finished.
 	cd "${HOME}"
-
 	printf "This moves existing files or symlinks to a backup directory. Proceed? (y/n) ";
 	read DOTFILES_OVERWRITE;
 	echo ""
@@ -177,42 +169,19 @@ function main() {
 
 
 		# ---------------------------------------------
-		# Copy "real" files
-		# ---------------------------------------------
-		for f in "${COMMON_REALFILES[@]}"
-		do
-			installRealFile "${f}"
-		done
-
-
-		# ---------------------------------------------
 		# Move backups from TMP to $HOME
 		# ---------------------------------------------
-		printf "\nMove backups to %s/%s ... " "${BACKUP_DIR}" $(basename ${BACKUP_TMPDIR})
 
+		echo ""
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
-		echo "Done."
-
-
-		# ---------------------------------------------
-		# Nano Syntax Highlighting
-		# ---------------------------------------------
-
- 		mkdir -p "${NANO_DIR}"
- 		if [[ -f ${DOTFILES_DIR}/.nano/*nanorc ]]; then
- 			cp ${DOTFILES_DIR}/.nano/*nanorc "${NANO_DIR}/"
- 		fi
-
-		### Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
-		### https://github.com/scopatz/nanorc
-		curl "https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh" | sh 2>&1 > /dev/null
-
+		printf "• Backups in %s/%s\n" "${BACKUP_DIR}" $(basename ${BACKUP_TMPDIR})
 
 
 		# ---------------------------------------------
 		# Happy End
 		# ---------------------------------------------
+
 		echo ""
 		echo "• You may want to install homebrew/linuxbrew formulae."
 		echo "  Go to your home directory and run 'brew bundle install'"
