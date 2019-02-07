@@ -87,15 +87,19 @@ function exit_err {
 }
 
 function createBackup() {
-	local file_basename=$(basename ${1})
-	local dotfile="${HOME}/${file_basename}"
+	local file_basename
+	local dotfile
+
+	file_basename=$(basename ${1})
+	dotfile="${HOME}/${file_basename}"
 
 	printf "\n%s " "${dotfile}"
 
 	# Symlinks
 	if [ -L "${dotfile}" ]; then
+		local link_target
 		printf " ... backup symlink ... "
-		local link_target="$(readlink "${dotfile}")"
+		link_target="$(readlink "${dotfile}")"
 		cp "${link_target}" "${BACKUP_TMPDIR}/" && rm "${dotfile}" && echo "Done."
 
 	# Regular files
@@ -172,7 +176,7 @@ function main() {
 		# ---------------------------------------------
 		# Move backups from TMP to $HOME
 		# ---------------------------------------------
-		printf "\nMove backups to %s/%s ... " ${BACKUP_DIR} $(basename ${BACKUP_TMPDIR})
+		printf "\nMove backups to %s/%s ... " "${BACKUP_DIR}" $(basename ${BACKUP_TMPDIR})
 
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
@@ -205,7 +209,7 @@ function main() {
 		echo "Aborted."
 	fi;
 
-	cd $OLDPWD
+	cd "${OLDPWD}"
 	exit 0
 }
 
