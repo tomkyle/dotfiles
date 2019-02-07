@@ -8,14 +8,16 @@
 
 File | Purpose
 :----| :-------
-`.ackrc` | Obligatory parameters for [ack](http://beyondgrep.com/)
-`.aliases` | Common shell shortcuts 
-`.bash_prompt` | Git-ready prompt in solarized dark theme style
-`.editorconfig` | Rules for certain filetypes, see [editorconfig.org](http://editorconfig.org/)
-`.gitconfig` | Global Git [configuration](http://git-scm.com/docs/git-config)
-`.paths` | Extensions for the `$PATH` variable
-`.screenrc` | Screen session info in shell's bottom line
-`.zshrc` | from [Oh My ZSH!](http://ohmyz.sh/), using the [risto theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#risto). 
+.ackrc | Obligatory parameters for [ack](http://beyondgrep.com/)
+.aliases | Common shell shortcuts 
+.bash_prompt | Git-ready prompt in solarized dark theme style
+.editorconfig | Rules for certain filetypes, see [editorconfig.org](http://editorconfig.org/)
+.gitconfig | Global Git [configuration](http://git-scm.com/docs/git-config)
+.nanorc | Nano editor config file 
+.nano/ | Syntax highlighting definitions 
+.paths | Extensions for the `$PATH` variable
+.screenrc | Screen session info in shell's bottom line
+.zshrc | from [Oh My ZSH!](http://ohmyz.sh/), using the [risto theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#risto). 
 
 ## OS-specific dotfiles
 
@@ -26,6 +28,7 @@ The installer will put these files from the **ubuntu/** directory into your home
 - **.bashrc**
 - **.profile**
 - **.selected_editor**
+- **Brewfile**
 
 ### MacOS
 
@@ -34,7 +37,7 @@ The installer will put these files from the **osx**/ directory into your home fo
 - **.bashrc**
 - **.bash_profile**
 - **.profile**
-- **Brewfile**
+- **Brewfile** with latest *nano* 3.2
 
 
 
