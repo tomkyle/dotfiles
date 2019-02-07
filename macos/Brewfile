@@ -13,8 +13,10 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
-# Mac App Store CLI
-brew "mas"
+### Mac App Store CLI
+### Requires Xcode.app 10.1 which itself
+### requires something newer than my macOS 10.11
+# brew "mas"
 
 # Shell stuff
 brew "zsh"
