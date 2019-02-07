@@ -127,6 +127,18 @@ function installSymlink() {
 
 function main() {
 
+
+	# Go to Dotfiles directory; we'll change back when script finished.
+	cd "${DOTFILES_DIR}"
+
+	# ---------------------------------------------
+	# Load and update Git submodules
+	# ---------------------------------------------
+
+	printf "Install submodules ... ";
+	git submodule init && git submodule update --remote  && echo "Done."
+	echo ""
+
 	# ---------------------------------------------
 	# Add OS-specific files
 	# ---------------------------------------------
@@ -188,7 +200,9 @@ function main() {
 		# ---------------------------------------------
 
  		mkdir -p "${NANO_DIR}"
- 		cp ${DOTFILES_DIR}/.nano/*nanorc "${NANO_DIR}/"
+ 		if [[ -f ${DOTFILES_DIR}/.nano/*nanorc ]]; then
+ 			cp ${DOTFILES_DIR}/.nano/*nanorc "${NANO_DIR}/"
+ 		fi
 
 		### Install Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
 		### https://github.com/scopatz/nanorc

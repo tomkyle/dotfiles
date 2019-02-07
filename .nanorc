@@ -14,12 +14,4 @@ set smooth
 set tabsize 4
 
 
-include "~/.nano/Brewfile.nanorc"
-
-# ========================================================================
-# Anthony Scopatz's "Improved Nano Syntax Highlighting Files"
-# https://github.com/scopatz/nanorc
-#
-# Automatically filled by dotfile installer
-# ========================================================================
-
+include "~/dotfiles/**/*.nanorc"

@@ -1,3 +1,6 @@
-[submodule "nanorc-brewfile"]
-	path = nanorc-brewfile
+[submodule "nano/scopatz-nanorc"]
+	path = nano/scopatz-nanorc
+	url = https://github.com/scopatz/nanorc.git
+[submodule "nano/tomkyle-nanorc-brewfile"]
+	path = nano/tomkyle-nanorc-brewfile
 	url = https://github.com/tomkyle/nanorc-brewfile.git
