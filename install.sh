@@ -66,6 +66,7 @@ declare -a MACOS_DOTFILES=(
 	"${DOTFILES_DIR_MACOS}/.bash_profile"
 	"${DOTFILES_DIR_MACOS}/.bashrc"
 	"${DOTFILES_DIR_MACOS}/.profile"
+	"${DOTFILES_DIR_MACOS}/Brewfile"
 )
 
 declare -a INSTALL_FILES=()
