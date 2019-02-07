@@ -1,0 +1,3 @@
+[submodule "nanorc-brewfile"]
+	path = nanorc-brewfile
+	url = https://github.com/tomkyle/nanorc-brewfile.git
