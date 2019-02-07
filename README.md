@@ -1,5 +1,7 @@
 # tomkyle/dotfiles
 
+[![Build Status](https://travis-ci.org/tomkyle/dotfiles.svg?branch=master)](https://travis-ci.org/tomkyle/dotfiles)
+
 **Please note:** This repo is under heavy development for now, including BC breaks being possible. So if you like to use it for yor own, you may do so (cautious) and feel warned ;-)
 
 ## Dotfiles for your home directory
