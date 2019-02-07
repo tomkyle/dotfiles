@@ -27,15 +27,22 @@ set -o pipefail
 # --------------------------------------
 
 # Absolute path to this script.
-declare DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+declare DOTFILES_DIR
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Where to find the OS-related scripts
-declare DOTFILES_DIR_UBUNTU="${DOTFILES_DIR}/ubuntu"
-declare DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
+declare DOTFILES_DIR_UBUNTU
+DOTFILES_DIR_UBUNTU="${DOTFILES_DIR}/ubuntu"
+
+declare DOTFILES_DIR_MACOS
+DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
 
 
-declare BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
-declare BACKUP_DIR="${DOTFILES_DIR}/backups"
+declare BACKUP_TMPDIR
+BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
+
+declare BACKUP_DIR
+BACKUP_DIR="${DOTFILES_DIR}/backups"
 
 
 # --------------------------------------
@@ -104,9 +111,9 @@ function installSymlink() {
 	local file_basename
 	local dotfile
 
-	file_basename=$(basename ${1})
+	file_basename="$(basename "${1}")"
 	dotfile="${HOME}/${file_basename}"
-	printf "${dotfile} "
+	printf "%s " "${dotfile}"
 
 	createBackup "${dotfile}" && \
 	ln -s "${1}" "${HOME}" && \
@@ -154,7 +161,7 @@ function main() {
 	# Go to Home directory; we'll change back when script finished.
 	cd "${HOME}"
 	printf "This moves existing files or symlinks to a backup directory. Proceed? (y/n) ";
-	read DOTFILES_OVERWRITE;
+	read -r DOTFILES_OVERWRITE;
 	echo ""
 
 	if [[ "${DOTFILES_OVERWRITE}" =~ ^[Yy]$ ]]; then
@@ -175,7 +182,7 @@ function main() {
 		echo ""
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
-		printf "• Backups in %s/%s\n" "${BACKUP_DIR}" $(basename ${BACKUP_TMPDIR})
+		printf "• Backups in %s/%s\n" "${BACKUP_DIR}" "$(basename "${BACKUP_TMPDIR}")"
 
 
 		# ---------------------------------------------
