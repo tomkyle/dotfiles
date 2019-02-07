@@ -60,6 +60,7 @@ declare -a UBUNTU_DOTFILES=(
 	"${DOTFILES_DIR_UBUNTU}/.bashrc"
 	"${DOTFILES_DIR_UBUNTU}/.profile"
 	"${DOTFILES_DIR_UBUNTU}/.selected_editor"
+	"${DOTFILES_DIR_UBUNTU}/Brewfile"
 )
 
 declare -a MACOS_DOTFILES=(
@@ -198,7 +199,10 @@ function main() {
 		# Happy End
 		# ---------------------------------------------
 		echo ""
-		echo "It is recommended to log in again to apply dotfiles."
+		echo "• You may want to install homebrew/linuxbrew formulae."
+		echo "  Go to your home directory and run 'brew bundle install'
+		echo ""
+		echo "• It is recommended to log in again to apply dotfiles."
 
 	else
 		echo "Aborted."
