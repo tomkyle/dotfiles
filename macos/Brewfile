@@ -18,6 +18,7 @@ tap "homebrew/cask-fonts"
 ### requires something newer than my macOS 10.11
 # brew "mas"
 
+
 # Shell stuff
 brew "zsh"
 brew "bash"
@@ -30,7 +31,7 @@ brew "findutils"
 brew "lnav"
 brew "ncdu"
 brew "tree"
-brew "node"
+
 
 ###  File mangling
 brew "ack"
@@ -39,6 +40,7 @@ brew "curl"
 brew "wget"
 brew "remarshal"
 brew "cless"
+
 
 ### Possibly useful one day
 # brew "jp"
@@ -53,6 +55,8 @@ brew "nano"
 
 
 ### Development
+brew "node"
+brew "yarn"
 brew "git"
 brew "git-flow-avh"
 brew "git-open"
@@ -61,7 +65,6 @@ brew "ruby"
 brew "php"
 brew "composer"
 brew "shellcheck"
-
 
 
 
@@ -74,7 +77,6 @@ brew "graphicsmagick"
 brew "dcraw"
 brew "exiv2"
 brew "parallel"
-
 
 
 ### Apps
