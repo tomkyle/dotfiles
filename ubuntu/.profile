@@ -1,6 +1,6 @@
-# ========================================================================
-#
 # .profile
+
+# ------------------------------------------------------------------------
 #
 # When a Login shell starts up, it reads the files in the following order,
 # only reading the first one it encounters.
@@ -17,7 +17,7 @@
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 
 # the default umask is set in /etc/profile; for setting the umask
