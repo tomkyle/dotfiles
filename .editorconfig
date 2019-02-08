@@ -1,6 +1,6 @@
-# ========================================================================
-#
 # .editorconfig
+
+# ------------------------------------------------------------------------
 #
 # Defines basic coding styles.
 # See EditorConfig homepage <http://editorconfig.org/>
@@ -8,7 +8,7 @@
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 # editorconfig.org
 root = true
