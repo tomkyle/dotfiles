@@ -30,7 +30,7 @@ brew "findutils"
 brew "lnav"
 brew "ncdu"
 brew "tree"
-
+brew "node"
 
 ###  File mangling
 brew "ack"
