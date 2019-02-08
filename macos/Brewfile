@@ -40,6 +40,7 @@ brew "curl"
 brew "wget"
 brew "remarshal"
 brew "cless"
+brew "colordiff"
 
 
 ### Possibly useful one day
@@ -65,6 +66,8 @@ brew "ruby"
 brew "php"
 brew "composer"
 brew "shellcheck"
+brew "python"
+brew "python3"
 
 
 
