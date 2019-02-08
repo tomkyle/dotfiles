@@ -1,11 +1,11 @@
-# ========================================================================
-#
 # Brewfile
+
+# ------------------------------------------------------------------------
 #
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 
 tap "homebrew/core"
@@ -17,6 +17,7 @@ tap "homebrew/cask-fonts"
 ### Requires Xcode.app 10.1 which itself
 ### requires something newer than my macOS 10.11
 # brew "mas"
+
 
 # Shell stuff
 brew "zsh"
@@ -39,6 +40,8 @@ brew "curl"
 brew "wget"
 brew "remarshal"
 brew "cless"
+brew "colordiff"
+
 
 ### Possibly useful one day
 # brew "jp"
@@ -53,6 +56,8 @@ brew "nano"
 
 
 ### Development
+brew "node"
+brew "yarn"
 brew "git"
 brew "git-flow-avh"
 brew "git-open"
@@ -61,7 +66,8 @@ brew "ruby"
 brew "php"
 brew "composer"
 brew "shellcheck"
-
+brew "python"
+brew "python3"
 
 
 
@@ -74,7 +80,6 @@ brew "graphicsmagick"
 brew "dcraw"
 brew "exiv2"
 brew "parallel"
-
 
 
 ### Apps
@@ -94,6 +99,8 @@ cask "libreoffice"
 cask "libreoffice-language-pack", args: {"language": "de"}
 cask "skype"
 cask "slack"
+cask "signal"
+cask "postman"
 cask "adobe-creative-cloud"
 
 

@@ -1,6 +1,6 @@
-# ========================================================================
-#
 # .bashrc
+
+# ------------------------------------------------------------------------
 #
 # Executed by bash for Non-login shells.
 # Comes with clean install of Ubuntu.
@@ -13,7 +13,7 @@
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 
 # If not running interactively, don't do anything

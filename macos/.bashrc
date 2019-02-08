@@ -1,6 +1,6 @@
-# ========================================================================
-#
 # .bashrc
+
+# ------------------------------------------------------------------------
 #
 # When a Non-Login shell starts up, it reads the files in the following
 # order, only reading the first one it encounters.
@@ -11,7 +11,7 @@
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 
 # Nothing to see here — Everything's in .bash_profile

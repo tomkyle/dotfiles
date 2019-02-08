@@ -1,6 +1,6 @@
-# ========================================================================
-#
 # .lessrc
+
+# ------------------------------------------------------------------------
 #
 # After Top Bug Net's article "Make the less Command More Powerful"
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
@@ -8,7 +8,7 @@
 # This file is part of tomkyle/dotfiles
 # <https://github.com/tomkyle/dotfiles>
 #
-# ========================================================================
+# ------------------------------------------------------------------------
 
 
 ### set options for less
