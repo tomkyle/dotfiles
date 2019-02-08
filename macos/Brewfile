@@ -100,6 +100,7 @@ cask "libreoffice-language-pack", args: {"language": "de"}
 cask "skype"
 cask "slack"
 cask "signal"
+cask "postman"
 cask "adobe-creative-cloud"
 
 
