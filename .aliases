@@ -220,7 +220,7 @@ alias gfrf="git flow release finish -p"
 # Most-used typo errors
 # ------------------------------------------------------------------------
 alias whoch="which"
-
+alias compsoer="composer"
 
 # ------------------------------------------------------------------------
 # Local and private aliases not being provided by this dotfiles repo
