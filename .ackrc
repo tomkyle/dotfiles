@@ -36,6 +36,8 @@
 --ignore-file=match:composer.lock
 --ignore-file=match:.log
 
+--ignore-file=match:.zsh_history
+
 # Legacy stuff
 --ignore-dir=vendor-legacy
 --ignore-dir=tomkyle

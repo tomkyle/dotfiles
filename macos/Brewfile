@@ -88,6 +88,7 @@ cask "bitwarden"
 cask "iterm2"
 cask "sublime-text"
 cask "transmit"
+cask "sourcetree"
 cask "sequel-pro"
 cask "typora"
 cask "firefox", args: {"language": "de"}
