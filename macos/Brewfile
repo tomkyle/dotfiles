@@ -68,6 +68,7 @@ brew "composer"
 brew "shellcheck"
 brew "python"
 brew "python3"
+brew "phplint"
 
 
 
