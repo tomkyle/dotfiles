@@ -106,12 +106,12 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 fi
 
 
-
-AG_ZSH_COMPLETION="/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_the_silver_searcher"
-
-if [[ -f "${AG_ZSH_COMPLETION}" ]]; then
-    source "${AG_ZSH_COMPLETION}"
-fi
+### Disabled causing problems at login...
+# AG_ZSH_COMPLETION="/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_the_silver_searcher"
+#
+# if [[ -f "${AG_ZSH_COMPLETION}" ]]; then
+#     source "${AG_ZSH_COMPLETION}"
+# fi
 
 # ------------------------------------------------------------------------
 # ^ END tomkyle/dotfiles snippet.
