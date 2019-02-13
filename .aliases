@@ -38,8 +38,9 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias s='open -a "Sublime Text"'
 
-	# Open specified files in Sublime Text
-	alias m='open -a "MacDown"'
+	# Open specified files in MacDown or Typora
+	# alias m='open -a "MacDown"'
+	alias m='open -a "Typora"'
 
 	# Switch dotfiles in Finder
 	alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
