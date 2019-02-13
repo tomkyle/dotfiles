@@ -9,6 +9,10 @@
 #
 
 
+
+
+
+
 # ---------------------------------------------------------
 # Runtime Environment
 # ---------------------------------------------------------
@@ -19,6 +23,31 @@ set -o errexit
 set -o nounset
 set -o pipefail
 # set -o xtrace
+
+
+# Formatting stuff
+readonly C_RED='\033[0;31m'
+readonly C_GREEN='\033[0;32m'
+readonly C_ORANGE=$(tput setaf 3)
+readonly NC='\033[0m' # No Color
+
+
+
+# Just a note: Useful characters: ✔ ✘
+# Error message and error exit, redirecting stdout to stderr
+
+function e_error {
+	echo -e >&2 "${C_RED}Error: ${*}${NC}";
+	exit 1;
+}
+
+function e_warning {
+  echo -e "${C_ORANGE}• Warning: ${*}${NC}"
+}
+
+function e_success () {
+  printf "${C_GREEN}✔ %s${NC}\n" "${*-}"
+}
 
 
 
@@ -39,7 +68,7 @@ DOTFILES_DIR_MACOS="${DOTFILES_DIR}/macos"
 
 
 declare BACKUP_TMPDIR
-BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || { exit_err "Failed to create temp directory."; }
+BACKUP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp/}$(basename 0).XXXXXXXXXXXX")  || e_error "Failed to create temp directory."
 
 declare BACKUP_DIR
 BACKUP_DIR="${DOTFILES_DIR}/backups"
@@ -117,7 +146,7 @@ function installSymlink() {
 
 	createBackup "${dotfile}" && \
 	ln -s "${1}" "${HOME}" && \
-	echo "...done."
+	e_success ""
 
 }
 
@@ -135,7 +164,7 @@ function main() {
 
 	cd "${DOTFILES_DIR}"
 	printf "Install submodules ... ";
-	git submodule init && git submodule update --remote  && echo "Done."
+	git submodule init && git submodule update --remote && e_success ""
 	echo ""
 
 
@@ -150,7 +179,7 @@ function main() {
 		INSTALL_FILES=( "${COMMON_DOTFILES[@]}" "${MACOS_DOTFILES[@]}" )
 
 	else
-		exit_err "Could not determine OS type"
+		e_error "Could not determine OS type"
 	fi;
 
 
@@ -182,8 +211,7 @@ function main() {
 		echo ""
 		mkdir -p "${BACKUP_DIR}" && \
 		mv "${BACKUP_TMPDIR}" "${BACKUP_DIR}/" && \
-		printf "• Backups in %s/%s\n" "${BACKUP_DIR}" "$(basename "${BACKUP_TMPDIR}")"
-
+		e_success "$(printf "Backups in %s/%s\n" "${BACKUP_DIR}" "$(basename "${BACKUP_TMPDIR}")")"
 
 		# ---------------------------------------------
 		# Happy End
