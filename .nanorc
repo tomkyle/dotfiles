@@ -16,3 +16,4 @@ set tabsize 4
 
 include "~/.nano/scopatz-nanorc/*.nanorc"
 include "~/.nano/tomkyle-nanorc-brewfile/*.nanorc"
+include "~/.nano/tomkyle-nanorc-conf/*.nanorc"
