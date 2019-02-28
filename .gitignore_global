@@ -114,7 +114,6 @@ vendor
 node_modules
 config.json
 config.yaml
-composer.lock
 .htaccess
 phpunit.xml
 
