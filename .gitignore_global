@@ -116,7 +116,7 @@ config.json
 config.yaml
 .htaccess
 phpunit.xml
-
+.phpunit.*
 
 # ------------------------------------------------------------------------
 # Workflow files
