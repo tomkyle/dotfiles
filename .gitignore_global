@@ -122,6 +122,7 @@ phpunit.xml
 # Workflow files
 # ------------------------------------------------------------------------
 
+.php_cs.cache
 _schrott
 tests/build
 build
