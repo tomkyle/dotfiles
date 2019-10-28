@@ -172,6 +172,11 @@ alias cr="composer require"
 alias crd="composer require --dev"
 alias ct="composer test"
 
+
+
+alias why="composer why"
+alias show="composer show"
+
 # ------------------------------------------------------------------------
 # PhpUnit
 # ------------------------------------------------------------------------

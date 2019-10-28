@@ -116,12 +116,13 @@ config.json
 config.yaml
 .htaccess
 phpunit.xml
-
+.phpunit.*
 
 # ------------------------------------------------------------------------
 # Workflow files
 # ------------------------------------------------------------------------
 
+.php_cs.cache
 _schrott
 tests/build
 build
