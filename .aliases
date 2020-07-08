@@ -126,7 +126,10 @@ export removelink
 # ------------------------------------------------------------------------
 
 alias afw="ack --word-regexp"
+alias afwi="afw --ignore-dir='htdocs'"
+
 alias agw="ag --word-regexp"
+alias agwi="agw --ignore-dir='htdocs'"
 
 alias aff="ack --literal --files-with-matches"
 alias agf="ag --literal --files-with-matches"
@@ -136,6 +139,7 @@ alias agl="ag --literal"
 
 alias afr="ack --match"
 alias agr="ag --match"
+
 
 
 # ------------------------------------------------------------------------
