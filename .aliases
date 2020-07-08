@@ -181,10 +181,10 @@ alias show="composer show"
 # PhpUnit
 # ------------------------------------------------------------------------
 
-alias pu="phpunit"
-alias puf="phpunit --filter"
-alias vpu="./vendor/bin/phpunit"
-alias vpuf="./vendor/bin/phpunit --filter"
+alias pu="phpunit --testdox"
+alias puf="phpunit --testdox --filter"
+alias vpu="./vendor/bin/phpunit --testdox "
+alias vpuf="./vendor/bin/phpunit --testdox --filter"
 
 
 # ------------------------------------------------------------------------
