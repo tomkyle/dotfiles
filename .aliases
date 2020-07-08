@@ -126,7 +126,10 @@ export removelink
 # ------------------------------------------------------------------------
 
 alias afw="ack --word-regexp"
+alias afwi="afw --ignore-dir='htdocs'"
+
 alias agw="ag --word-regexp"
+alias agwi="agw --ignore-dir='htdocs'"
 
 alias aff="ack --literal --files-with-matches"
 alias agf="ag --literal --files-with-matches"
@@ -136,6 +139,7 @@ alias agl="ag --literal"
 
 alias afr="ack --match"
 alias agr="ag --match"
+
 
 
 # ------------------------------------------------------------------------
@@ -181,10 +185,10 @@ alias show="composer show"
 # PhpUnit
 # ------------------------------------------------------------------------
 
-alias pu="phpunit"
-alias puf="phpunit --filter"
-alias vpu="./vendor/bin/phpunit"
-alias vpuf="./vendor/bin/phpunit --filter"
+alias pu="phpunit --testdox"
+alias puf="phpunit --testdox --filter"
+alias vpu="./vendor/bin/phpunit --testdox "
+alias vpuf="./vendor/bin/phpunit --testdox --filter"
 
 
 # ------------------------------------------------------------------------
