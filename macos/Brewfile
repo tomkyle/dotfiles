@@ -35,11 +35,13 @@ brew "tree"
 
 ###  File mangling
 brew "ack"
+brew "pt"
 brew "the_silver_searcher"
 brew "curl"
 brew "wget"
 brew "remarshal"
 brew "cless"
+brew "ccat"
 brew "colordiff"
 
 
@@ -61,13 +63,13 @@ brew "yarn"
 brew "git"
 brew "git-flow-avh"
 brew "git-open"
+brew "gh"
 brew "tig"
 brew "ruby"
 brew "php"
 brew "composer"
 brew "shellcheck"
 brew "python"
-brew "python3"
 brew "phplint"
 
 
@@ -84,13 +86,13 @@ brew "parallel"
 
 
 ### Apps
-# cask "quiver" # does not exist?!
 cask "bitwarden"
 cask "iterm2"
 cask "sublime-text"
 cask "transmit"
 cask "sourcetree"
 cask "sequel-pro"
+cask "db-browser-for-sqlite"
 cask "typora"
 cask "firefox", args: {"language": "de"}
 cask "google-chrome"
