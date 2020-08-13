@@ -231,7 +231,7 @@ alias gfrf="git flow release finish -p"
 # OpenAPI generators
 # ------------------------------------------------------------------------
 
-alias opaig="openapi-generator generate -i openapi.yaml -o docs -g html2"
+alias oaig="openapi-generator generate -i openapi.yaml -o docs -g html2"
 
 
 # ------------------------------------------------------------------------
