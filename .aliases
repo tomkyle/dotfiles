@@ -226,6 +226,16 @@ alias gfrs="git flow release start"
 alias gfrf="git flow release finish -p"
 
 
+
+# ------------------------------------------------------------------------
+# OpenAPI generators
+# ------------------------------------------------------------------------
+
+alias oasg="openapi-generator generate -i openapi.yaml -o docs -g html2"
+alias oasgm="openapi-generator generate -i openapi.yaml -o docs -g markdown --escape-unsafe-characters=true"
+alias oasgj="openapi-generator generate -i openapi.yaml -o openapi.json -g openapi"
+alias oasgpc="openapi-generator generate -i openapi.yaml -o php-client -g php"
+
 # ------------------------------------------------------------------------
 # Most-used typo errors
 # ------------------------------------------------------------------------
