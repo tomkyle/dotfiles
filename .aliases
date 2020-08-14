@@ -232,7 +232,7 @@ alias gfrf="git flow release finish -p"
 # ------------------------------------------------------------------------
 
 alias oasg="openapi-generator generate -i openapi.yaml -o docs -g html2"
-alias oasgm="openapi-generator generate -i openapi.yaml -o docs -g markdown --escape-unsafe-characters=true"
+alias oasgm="openapi-generator generate -i openapi.yaml -o docs -g markdown --additional-properties=escapeUnsafeCharacters=true"
 alias oasgj="openapi-generator generate -i openapi.yaml -o openapi.json -g openapi"
 alias oasgpc="openapi-generator generate -i openapi.yaml -o php-client -g php"
 
