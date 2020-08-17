@@ -71,7 +71,7 @@ brew "composer"
 brew "shellcheck"
 brew "python"
 brew "phplint"
-
+brew "adr-tools"
 
 
 ### Imagery
