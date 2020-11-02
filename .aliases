@@ -168,6 +168,7 @@ alias vgs="vagrant global-status"
 # Composer
 # ------------------------------------------------------------------------
 
+alias c="composer"
 alias cu="composer update"
 alias cuo="composer update --optimize-autoloader"
 alias cda="composer dump-autoload"
