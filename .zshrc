@@ -106,6 +106,13 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 fi
 
 
+# Jump word-wise
+# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+
+
 ### Disabled causing problems at login...
 # AG_ZSH_COMPLETION="/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_the_silver_searcher"
 #
