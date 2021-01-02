@@ -91,6 +91,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 
+
+
+
+
 # ------------------------------------------------------------------------
 # BEGIN tomkyle/dotfiles snippet:
 # ------------------------------------------------------------------------
@@ -120,10 +124,27 @@ bindkey "^[[1;3D" backward-word
 #     source "${AG_ZSH_COMPLETION}"
 # fi
 
+
+### Fix an issue with oh-my-zsh:
+# Message: "Insecure completion-dependent directories detected"
+#
+# Issue:    https://github.com/ohmyzsh/ohmyzsh/issues/6835
+# Solution: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
+ZSH_DISABLE_COMPFIX=true
+
+
+
 # ------------------------------------------------------------------------
 # ^ END tomkyle/dotfiles snippet.
 # Below the rest of the original .zshrc
 # ------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 source $ZSH/oh-my-zsh.sh
 
