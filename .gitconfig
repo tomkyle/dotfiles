@@ -70,3 +70,5 @@
   	path = ~/.gitconfig.local
 
 
+[pull]
+	rebase = false
