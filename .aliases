@@ -29,6 +29,9 @@ fi
 # ------------------------------------------------------------------------
 if [[ "${DOTFILES_OS}" == "osx" ]]; then
 
+	# Open specified directory in GitHub Desktop
+	alias ghd='open -a "GitHub Desktop"'
+
 	# Open current directory in new Finder window
 	alias t='open -R ${PWD}'
 
