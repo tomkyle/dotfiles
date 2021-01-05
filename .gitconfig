@@ -13,11 +13,12 @@
 	precomposeunicode = true
 
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 
 
 [color]
-	ui = auto
+	ui = true
 
 
 [alias]
@@ -72,3 +73,15 @@
 
 [pull]
 	rebase = false
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
