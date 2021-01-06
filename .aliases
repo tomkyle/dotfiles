@@ -191,8 +191,16 @@ alias show="composer show"
 
 alias pu="phpunit --testdox"
 alias puf="phpunit --testdox --filter"
-alias vpu="./vendor/bin/phpunit --testdox "
+alias vpu="./vendor/bin/phpunit --testdox"
+
+# Adds filter functionality:
+# https://phpunit.readthedocs.io/en/9.3/textui.html#command-line-options
 alias vpuf="./vendor/bin/phpunit --testdox --filter"
+
+# Enable code coverage via XDEBUG_MODE environment variable
+# https://github.com/sebastianbergmann/php-code-coverage/issues/834
+alias xvpu="XDEBUG_MODE=coverage ./vendor/bin/phpunit --testdox"
+
 
 
 # ------------------------------------------------------------------------
