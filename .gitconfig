@@ -13,12 +13,43 @@
 	precomposeunicode = true
 
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[push]
+	default = simple
+
+[pull]
+	rebase = false
 
 
 
 [color]
-	ui = auto
+	ui = true
 
+# ------------------------------------------------------------------------
+# diff-so-fancy:
+#
+# These settings as described here:
+# https://github.com/so-fancy/diff-so-fancy
+#
+# Requires "brew install diff-so-fancy"
+# ------------------------------------------------------------------------
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+# ------------------------------------------------------------------------
 
 [alias]
 
@@ -55,9 +86,6 @@
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 
 
-
-[push]
-	default = simple
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
