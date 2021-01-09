@@ -65,6 +65,8 @@
 	# Status: Show only changes to files in current directory
 	here = status .
 
+	# Show remote repo information (requires network)
+	info = remote show origin
 
 	# Commit helpers
 	ci  = commit
@@ -84,7 +86,6 @@
 
 	# Show files: last commits and tags, descending
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-
 
 
 [filter "lfs"]
