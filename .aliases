@@ -248,11 +248,14 @@ alias oasgm="openapi-generator generate -i openapi.yaml -o docs -g markdown --ad
 alias oasgj="openapi-generator generate -i openapi.yaml -o openapi.json -g openapi"
 alias oasgpc="openapi-generator generate -i openapi.yaml -o php-client -g php"
 
+
 # ------------------------------------------------------------------------
 # Most-used typo errors
 # ------------------------------------------------------------------------
 alias whoch="which"
+alias brwe="brew"
 alias compsoer="composer"
+
 
 # ------------------------------------------------------------------------
 # Local and private aliases not being provided by this dotfiles repo
