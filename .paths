@@ -24,7 +24,7 @@ DOTFILE_LOCAL_PATHS="${HOME}/.paths.local"
 
 
 # These directories will be prepended to the $PATH variable,
-# if they exist.
+# IF THEY EXIST. Thus, paths are required to be absolute (this is a flaw)
 declare -a DOTFILES_PREPEND_PATHS=(
 	"/usr/local/sbin"
 	"/usr/local/bin"
@@ -35,7 +35,7 @@ declare -a DOTFILES_PREPEND_PATHS=(
 
 
 # These will be apppended to the $PATH variable,
-# if they exist.
+# IF THEY EXIST. Thus, paths are required to be absolute (this is a flaw)
 declare -a DOTFILES_APPEND_PATHS=(
 	"$HOME/.composer/vendor/bin"
 	"/snap/bin"
