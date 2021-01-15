@@ -202,6 +202,13 @@ alias vpuf="./vendor/bin/phpunit --testdox --filter"
 alias xvpu="XDEBUG_MODE=coverage ./vendor/bin/phpunit --testdox"
 
 
+# ------------------------------------------------------------------------
+# phpstan
+# ------------------------------------------------------------------------
+alias vps="./vendor/bin/phpstan"
+alias cvps="composer phpstan"
+
+
 
 # ------------------------------------------------------------------------
 # Git
