@@ -110,10 +110,16 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 fi
 
 
-# Jump word-wise
+
+
+### Jump word-wise
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
+
+# Disabled on 30.01.2021
+# as word-wise jumping can be set in terminal app
+
+# bindkey "^[[1;3C" forward-word
+# bindkey "^[[1;3D" backward-word
 
 
 
