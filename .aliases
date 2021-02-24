@@ -168,6 +168,14 @@ alias vgs="vagrant global-status"
 
 
 # ------------------------------------------------------------------------
+# Docker
+# ------------------------------------------------------------------------
+
+alias dcu="docker compose up"
+alias dcd="docker compose down"
+
+
+# ------------------------------------------------------------------------
 # Composer
 # ------------------------------------------------------------------------
 
@@ -179,8 +187,6 @@ alias cdao="composer dump-autoload --optimize"
 alias cr="composer require"
 alias crd="composer require --dev"
 alias ct="composer test"
-
-
 
 alias why="composer why"
 alias show="composer show"
