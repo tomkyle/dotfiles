@@ -99,3 +99,6 @@
   	path = ~/.gitconfig.local
 
 
+[user]
+	name = Carsten Witt
+	email = 412560+tomkyle@users.noreply.github.com
