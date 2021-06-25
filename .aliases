@@ -41,7 +41,7 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias s='open -a "Sublime Text"'
 
-	# Open specified files in Sublime Text
+	# Open specified files in Atom Editor
 	alias a='open -a "Atom"'
 
 	# Open specified files in Typora
