@@ -18,27 +18,48 @@
 # ------------------------------------------------------------------------
 
 
+### https://github.com/tonyduckles/dotfiles/blob/master/.ackrc
+# always sort the files
+--sort-files
+
+# grouping
+--heading
+--break
+
+# always use a PAGER
+--pager=less
+
+### Ignore lists
+
 --ignore-dir=_schrott
 --ignore-dir=build
 --ignore-dir=bower_components
 --ignore-dir=node_modules
 --ignore-dir=vendor
+--ignore-file=match:composer.lock
+--ignore-file=match:package-lock.json
+--ignore-file=match:.log
+--ignore-file=match:.zsh_history
+
+--ignore-dir=public/assets
 
 --ignore-dir=var/cache
 --ignore-dir=var/build
 --ignore-dir=var/templates_c
+--ignore-dir=var/templates/cache
 --ignore-dir=var/log
 
---ignore-dir=*/var/cache
---ignore-dir=*/var/templates_c
---ignore-dir=*/var/log
 
---ignore-file=match:composer.lock
---ignore-file=match:.log
+### Dunno if useful or crap?
+# --ignore-dir=*/var/cache
+# --ignore-dir=*/var/build
+# --ignore-dir=*/var/templates_c
+# --ignore-dir=*/var/templates/cache
+# --ignore-dir=*/var/log
 
---ignore-file=match:.zsh_history
 
-# Legacy stuff
+
+### My personal legacy stuff
 --ignore-dir=vendor-legacy
 --ignore-dir=tomkyle
 --ignore-dir=tomkyle-core

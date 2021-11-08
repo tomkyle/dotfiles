@@ -104,16 +104,22 @@ ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
 # Add certain plugins
-plugins+=(git-flow-avh)
+plugins+=(git-flow-avh colorize)
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-	plugins+=(osx)
+	plugins+=(macos)
 fi
 
 
-# Jump word-wise
+
+
+### Jump word-wise
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
+
+# Disabled on 30.01.2021
+# as word-wise jumping can be set in terminal app
+
+# bindkey "^[[1;3C" forward-word
+# bindkey "^[[1;3D" backward-word
 
 
 
@@ -132,6 +138,12 @@ bindkey "^[[1;3D" backward-word
 # Solution: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
 ZSH_DISABLE_COMPFIX=true
 
+
+# NVM is not officially supported with Homebrew by manufacturer.
+#
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 # ------------------------------------------------------------------------

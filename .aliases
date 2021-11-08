@@ -41,8 +41,10 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias s='open -a "Sublime Text"'
 
-	# Open specified files in MacDown or Typora
-	# alias m='open -a "MacDown"'
+	# Open specified files in Atom Editor
+	alias a='open -a "Atom"'
+
+	# Open specified files in Typora
 	alias m='open -a "Typora"'
 
 	# Switch dotfiles in Finder
@@ -168,6 +170,14 @@ alias vgs="vagrant global-status"
 
 
 # ------------------------------------------------------------------------
+# Docker
+# ------------------------------------------------------------------------
+
+alias dcu="docker compose up"
+alias dcd="docker compose down"
+
+
+# ------------------------------------------------------------------------
 # Composer
 # ------------------------------------------------------------------------
 
@@ -179,8 +189,6 @@ alias cdao="composer dump-autoload --optimize"
 alias cr="composer require"
 alias crd="composer require --dev"
 alias ct="composer test"
-
-
 
 alias why="composer why"
 alias show="composer show"
@@ -200,6 +208,13 @@ alias vpuf="./vendor/bin/phpunit --testdox --filter"
 # Enable code coverage via XDEBUG_MODE environment variable
 # https://github.com/sebastianbergmann/php-code-coverage/issues/834
 alias xvpu="XDEBUG_MODE=coverage ./vendor/bin/phpunit --testdox"
+
+
+# ------------------------------------------------------------------------
+# phpstan
+# ------------------------------------------------------------------------
+alias vps="./vendor/bin/phpstan"
+alias cvps="composer phpstan"
 
 
 
@@ -226,7 +241,7 @@ alias pushod="git push origin develop"
 alias pullom="git pull origin master"
 alias pullod="git pull origin develop"
 alias gfp="git push && gco master && gm develop && git push && gco develop"
-
+alias gfp2="git push && gco main && gm develop && git push && gco develop"
 
 # ------------------------------------------------------------------------
 # Git Flow
@@ -248,11 +263,15 @@ alias oasgm="openapi-generator generate -i openapi.yaml -o docs -g markdown --ad
 alias oasgj="openapi-generator generate -i openapi.yaml -o openapi.json -g openapi"
 alias oasgpc="openapi-generator generate -i openapi.yaml -o php-client -g php"
 
+
 # ------------------------------------------------------------------------
 # Most-used typo errors
 # ------------------------------------------------------------------------
 alias whoch="which"
+alias brwe="brew"
 alias compsoer="composer"
+alias exot="exit"
+
 
 # ------------------------------------------------------------------------
 # Local and private aliases not being provided by this dotfiles repo
