@@ -106,7 +106,7 @@ export UPDATE_ZSH_DAYS=13
 # Add certain plugins
 plugins+=(git-flow-avh colorize)
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-	plugins+=(osx)
+	plugins+=(macos)
 fi
 
 
