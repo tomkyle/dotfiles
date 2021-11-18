@@ -37,8 +37,8 @@
 --ignore-dir=node_modules
 --ignore-dir=vendor
 --ignore-dir=public/assets
-
 --ignore-dir=tests/logs
+--ignore-dir=tests/lhci
 --ignore-dir=.lighthouseci
 
 --ignore-dir=var/cache
