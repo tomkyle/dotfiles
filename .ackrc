@@ -39,6 +39,7 @@
 --ignore-dir=public/assets
 
 --ignore-dir=tests/logs
+--ignore-dir=.lighthouseci
 
 --ignore-dir=var/cache
 --ignore-dir=var/build
