@@ -47,6 +47,7 @@
 --ignore-dir=var/templates/cache
 --ignore-dir=var/log
 
+--ignore-file=match:.php-cs-fixer.cache
 --ignore-file=match:composer.lock
 --ignore-file=match:package-lock.json
 --ignore-file=match:.log
