@@ -103,13 +103,33 @@ plugins=(git)
 ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
-# Add certain plugins
-plugins+=(git-flow-avh colorize)
+
+# Add certain plugins:
+# https://project-awesome.org/unixorn/awesome-zsh-plugins
+#
+# https://github.com/zpm-zsh/colorize
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copydir
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copyfile
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jsontools
+# https://github.com/walesmd/caniuse.plugin.zsh
+#
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
+#
+if [ ! -d "$ZSH/custom/plugins/caniuse" ]; then
+	git clone https://github.com/walesmd/caniuse.plugin.zsh "$ZSH/custom/plugins/caniuse"
+fi
+
+plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools caniuse)
+
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	plugins+=(macos)
 fi
 
 
+echo;
+echo "Loaded ZSH plugins: ${plugins}"
+echo;
 
 
 ### Jump word-wise
@@ -144,6 +164,12 @@ ZSH_DISABLE_COMPFIX=true
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# GH completiomns for zsh
+# https://cli.github.com/manual/gh_completion
+autoload -U compinit
+compinit -i
 
 
 # ------------------------------------------------------------------------
