@@ -103,13 +103,32 @@ plugins=(git)
 ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
-# Add certain plugins
-plugins+=(git-flow-avh colorize)
+
+# Add certain plugins:
+# https://project-awesome.org/unixorn/awesome-zsh-plugins
+#
+# https://github.com/zpm-zsh/colorize
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copydir
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copyfile
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jsontools
+# https://github.com/walesmd/caniuse.plugin.zsh
+#
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
+#
+plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools)
+
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	plugins+=(macos)
 fi
 
+if [ -d "$ZSH/custom/plugins/caniuse" ]; then
+	plugins+=(caniuse)
+fi
 
+echo;
+echo "Loaded ZSH plugins: ${plugins}"
+echo;
 
 
 ### Jump word-wise
