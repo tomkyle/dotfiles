@@ -146,6 +146,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
+# GH completiomns for zsh
+# https://cli.github.com/manual/gh_completion
+autoload -U compinit
+compinit -i
+
+
 # ------------------------------------------------------------------------
 # ^ END tomkyle/dotfiles snippet.
 # Below the rest of the original .zshrc
