@@ -116,15 +116,16 @@ export UPDATE_ZSH_DAYS=13
 #
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
 #
-plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools)
+if [ ! -d "$ZSH/custom/plugins/caniuse" ]; then
+	git clone https://github.com/walesmd/caniuse.plugin.zsh "$ZSH/custom/plugins/caniuse"
+fi
+
+plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools caniuse)
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	plugins+=(macos)
 fi
 
-if [ -d "$ZSH/custom/plugins/caniuse" ]; then
-	plugins+=(caniuse)
-fi
 
 echo;
 echo "Loaded ZSH plugins: ${plugins}"
