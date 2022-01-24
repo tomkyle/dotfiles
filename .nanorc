@@ -10,7 +10,7 @@
 set autoindent
 set constantshow
 set mouse
-set smooth
+# set smooth
 set tabsize 4
 
 
