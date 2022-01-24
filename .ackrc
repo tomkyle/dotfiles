@@ -36,12 +36,10 @@
 --ignore-dir=bower_components
 --ignore-dir=node_modules
 --ignore-dir=vendor
---ignore-file=match:composer.lock
---ignore-file=match:package-lock.json
---ignore-file=match:.log
---ignore-file=match:.zsh_history
-
 --ignore-dir=public/assets
+--ignore-dir=tests/logs
+--ignore-dir=tests/lhci
+--ignore-dir=.lighthouseci
 
 --ignore-dir=var/cache
 --ignore-dir=var/build
@@ -49,14 +47,12 @@
 --ignore-dir=var/templates/cache
 --ignore-dir=var/log
 
-
-### Dunno if useful or crap?
-# --ignore-dir=*/var/cache
-# --ignore-dir=*/var/build
-# --ignore-dir=*/var/templates_c
-# --ignore-dir=*/var/templates/cache
-# --ignore-dir=*/var/log
-
+--ignore-file=match:.php-cs-fixer.cache
+--ignore-file=match:composer.lock
+--ignore-file=match:package-lock.json
+--ignore-file=match:.log
+--ignore-file=match:.zsh_history
+--ignore-file=match:.phpunit.result.cache
 
 
 ### My personal legacy stuff
