@@ -127,6 +127,18 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 fi
 
 
+# https://github.com/zsh-users/zsh-syntax-highlighting
+if [ ! -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH/custom/plugins/zsh-syntax-highlighting"
+fi
+
+# zsh-syntax-highlighting must be the last plugin sourced!
+if [ -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
+	plugins+=(zsh-syntax-highlighting)
+fi
+
+
+
 echo;
 echo "Loaded ZSH plugins: ${plugins}"
 echo;
