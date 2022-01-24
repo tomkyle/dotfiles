@@ -104,6 +104,8 @@ ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
 
+plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools)
+
 # Add certain plugins:
 # https://project-awesome.org/unixorn/awesome-zsh-plugins
 #
@@ -119,8 +121,10 @@ export UPDATE_ZSH_DAYS=13
 if [ ! -d "$ZSH/custom/plugins/caniuse" ]; then
 	git clone https://github.com/walesmd/caniuse.plugin.zsh "$ZSH/custom/plugins/caniuse"
 fi
+if [ -d "$ZSH/custom/plugins/caniuse" ]; then
+	plugins+=(caniuse)
+fi
 
-plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools caniuse)
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	plugins+=(macos)
@@ -128,11 +132,11 @@ fi
 
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
+# zsh-syntax-highlighting must be the last plugin sourced!
 if [ ! -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH/custom/plugins/zsh-syntax-highlighting"
 fi
 
-# zsh-syntax-highlighting must be the last plugin sourced!
 if [ -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
 	plugins+=(zsh-syntax-highlighting)
 fi
