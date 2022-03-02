@@ -104,7 +104,7 @@ ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
 
-plugins+=(git-flow-avh colorize copydir copyfile web-search jsontools)
+plugins+=(git-flow-avh colorize copypath copyfile web-search jsontools)
 
 # Add certain plugins:
 # https://project-awesome.org/unixorn/awesome-zsh-plugins
