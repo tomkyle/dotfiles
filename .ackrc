@@ -39,10 +39,12 @@
 --ignore-dir=public/assets
 --ignore-dir=tests/logs
 --ignore-dir=tests/lhci
+--ignore-dir=tests/build
 --ignore-dir=.lighthouseci
 
 --ignore-dir=var/cache
 --ignore-dir=var/build
+--ignore-dir=var/twig
 --ignore-dir=var/templates_c
 --ignore-dir=var/templates/cache
 --ignore-dir=var/log
