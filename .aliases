@@ -255,6 +255,13 @@ alias gfp="git push && gco master && gm develop && git push && gco develop"
 alias gfp2="git push && gco main && gm develop && git push && gco develop"
 
 # ------------------------------------------------------------------------
+# Git CLI
+# ------------------------------------------------------------------------
+alias ghi="gh issue"
+alias ghic="gh issue create"
+alias ghiv="gh issue view"
+
+# ------------------------------------------------------------------------
 # Git Flow
 # ------------------------------------------------------------------------
 
