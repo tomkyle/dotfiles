@@ -124,9 +124,11 @@ plugins+=(git-flow-avh colorize copypath copyfile)
 if [ ! -d "$ZSH/custom/plugins/caniuse" ]; then
 	git clone https://github.com/walesmd/caniuse.plugin.zsh "$ZSH/custom/plugins/caniuse"
 fi
-if [ -d "$ZSH/custom/plugins/caniuse" ]; then
-	plugins+=(caniuse)
-fi
+
+### Removed because unused
+# if [ -d "$ZSH/custom/plugins/caniuse" ]; then
+#	plugins+=(caniuse)
+# fi
 
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
