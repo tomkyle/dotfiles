@@ -13,6 +13,7 @@
 # ------------------------------------------------------------------------
 DOTFILES_PATHS="$HOME/.paths"
 DOTFILES_LESS="$HOME/.lessrc"
+DOTFILES_EXPORTS="$HOME/.exports"
 DOTFILES_ALIASES="$HOME/.aliases"
 DOTFILES_GITFLOW_COMPLETION="$HOME/.git-flow-completion.zsh"
 
@@ -255,6 +256,9 @@ source $ZSH/oh-my-zsh.sh
 
 # LESS pager config
 [[ -f "${DOTFILES_LESS}" ]] && source "${DOTFILES_LESS}"
+
+# EXPORTS config
+[[ -f "${DOTFILES_EXPORTS}" ]] && source "${DOTFILES_EXPORTS}"
 
 # Git flow completion:
 # https://github.com/petervanderdoes/git-flow-completion

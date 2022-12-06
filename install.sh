@@ -82,6 +82,7 @@ declare -a COMMON_DOTFILES=(
 	"${DOTFILES_DIR}/.aliases"
 	"${DOTFILES_DIR}/.bash_prompt"
 	"${DOTFILES_DIR}/.editorconfig"
+	"${DOTFILES_DIR}/.exports"
 	"${DOTFILES_DIR}/.gitconfig"
 	"${DOTFILES_DIR}/.gitignore_global"
 	"${DOTFILES_DIR}/.git-flow-completion.bash"

@@ -28,6 +28,7 @@ esac
 DOTFILES_PATHS="$HOME/.paths"
 DOTFILES_ALIASES="$HOME/.aliases"
 DOTFILES_LESS="$HOME/.lessrc"
+DOTFILES_EXPORTS="$HOME/.exports"
 DOTFILES_BASH_PROMPT="$HOME/.bash_prompt"
 # ------------------------------------------------------------------------
 
@@ -128,6 +129,12 @@ fi
 # LESS pager config
 # ------------------------------------------------------------------------
 [[ -f "${DOTFILES_LESS}" ]] && source "${DOTFILES_LESS}"
+
+
+# ------------------------------------------------------------------------
+# EXPORTS config
+# ------------------------------------------------------------------------
+[[ -f "${DOTFILES_EXPORTS}" ]] && source "${DOTFILES_EXPORTS}"
 
 
 # ------------------------------------------------------------------------
