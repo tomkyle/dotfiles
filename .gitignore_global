@@ -115,8 +115,8 @@ node_modules
 config.json
 config.yaml
 .htaccess
-phpunit.xml
 .phpunit.*
+phpunit.xml
 
 # ------------------------------------------------------------------------
 # Workflow files
@@ -124,5 +124,3 @@ phpunit.xml
 
 .php_cs.cache
 _schrott
-tests/build
-build

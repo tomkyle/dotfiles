@@ -86,6 +86,7 @@ declare -a COMMON_DOTFILES=(
 	"${DOTFILES_DIR}/.gitignore_global"
 	"${DOTFILES_DIR}/.git-flow-completion.bash"
 	"${DOTFILES_DIR}/.git-flow-completion.zsh"
+	"${DOTFILES_DIR}/.hyper.js"
 	"${DOTFILES_DIR}/.lessrc"
 	"${DOTFILES_DIR}/.nanorc"
 	"${DOTFILES_DIR}/.nano"
