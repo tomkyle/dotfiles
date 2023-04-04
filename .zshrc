@@ -270,3 +270,5 @@ unset DOTFILES_PATHS DOTFILES_LESS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
 
 
 
+
+test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
