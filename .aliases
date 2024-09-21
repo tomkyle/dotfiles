@@ -158,19 +158,6 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias buu='brew update; brew upgrade; brew cleanup; brew doctor'
 fi
 
-# ------------------------------------------------------------------------
-# Vagrant
-# ------------------------------------------------------------------------
-
-alias v="vagrant"
-alias va="vagrant box add"
-alias vai="vagrant init"
-alias vu="vagrant up"
-alias vupv="vagrant up --provider virtualbox"
-alias vh="vagrant halt"
-alias vs="vagrant ssh"
-alias vgs="vagrant global-status"
-
 
 # ------------------------------------------------------------------------
 # Docker
