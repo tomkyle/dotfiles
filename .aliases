@@ -51,6 +51,9 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
 	alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
 
+	# Chrome alias
+	alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+	alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 fi
 
 
