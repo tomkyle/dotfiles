@@ -1,2 +1,13 @@
 export EDITOR=nano
 export VISUAL="$EDITOR"
+
+
+
+# ------------------------------------------------------------------------
+# Local and private exports not being provided by this dotfiles repo
+# ------------------------------------------------------------------------
+
+if [ -e "${HOME}/.exports.local" ]; then
+	source "${HOME}/.exports.local"
+fi
+
