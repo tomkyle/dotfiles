@@ -104,12 +104,8 @@ plugins=(git)
 ZSH_THEME="risto"
 export UPDATE_ZSH_DAYS=13
 
+plugins+=(git-flow-avh colorize zsh-autosuggestions)
 
-plugins+=(git-flow-avh colorize copypath copyfile)
-
-# Removed
-#web-search jsontools
-#
 # Add certain plugins:
 # https://project-awesome.org/unixorn/awesome-zsh-plugins
 #
@@ -133,7 +129,7 @@ fi
 
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-	plugins+=(macos)
+	plugins+=(macos pip python brew virtualenvwrapper)
 fi
 
 
