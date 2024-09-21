@@ -174,20 +174,24 @@ echo;
 #
 # Issue:    https://github.com/ohmyzsh/ohmyzsh/issues/6835
 # Solution: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
-ZSH_DISABLE_COMPFIX=true
+# ZSH_DISABLE_COMPFIX=true
 
 
 # NVM is not officially supported with Homebrew by manufacturer.
 #
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+### DISABLED due to performance problems on startup?
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 # GH completiomns for zsh
 # https://cli.github.com/manual/gh_completion
-autoload -U compinit
-compinit -i
+
+# DISABLED due to performance problems on startup?
+autoload -Uz compinit
+compinit
 
 
 # ------------------------------------------------------------------------
