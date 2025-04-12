@@ -84,11 +84,10 @@ alias .....="cd ../../../.."
 # Directory Listing
 alias lss='ls -lA1'
 alias lla='ls -la'
-alias lsa='ls -la' # BC
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias lsa='eza -la' # New as of 2025/04/12
+alias ll='eza -alF'
+alias la='eza -A'
 
 alias ldots='ls -laA -d .*' # List all dotfiles in current directory
 
