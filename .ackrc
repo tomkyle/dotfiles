@@ -41,6 +41,7 @@
 --ignore-dir=tests/lhci
 --ignore-dir=tests/build
 --ignore-dir=.lighthouseci
+--ignore-dir=.unlighthouse
 
 --ignore-dir=var/cache
 --ignore-dir=var/build
