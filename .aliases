@@ -41,8 +41,8 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	# Open specified files in Sublime Text
 	alias s='open -a "Sublime Text"'
 
-	# Open specified files in Atom Editor
-	alias a='open -a "Atom"'
+	# Open specified files in VSCodium
+	alias vsc='open -a "VSCodium"'
 
 	# Open specified files in Typora
 	alias m='open -a "Typora"'
@@ -51,6 +51,9 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder"
 	alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
 
+	# Chrome alias
+	alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+	alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 fi
 
 
@@ -81,11 +84,10 @@ alias .....="cd ../../../.."
 # Directory Listing
 alias lss='ls -lA1'
 alias lla='ls -la'
-alias lsa='ls -la' # BC
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias lsa='eza -la' # New as of 2025/04/12
+alias ll='eza -alF'
+alias la='eza -A'
 
 alias ldots='ls -laA -d .*' # List all dotfiles in current directory
 
@@ -155,19 +157,6 @@ if [[ "${DOTFILES_OS}" == "osx" ]]; then
 	alias buu='brew update; brew upgrade; brew cleanup; brew doctor'
 fi
 
-# ------------------------------------------------------------------------
-# Vagrant
-# ------------------------------------------------------------------------
-
-alias v="vagrant"
-alias va="vagrant box add"
-alias vai="vagrant init"
-alias vu="vagrant up"
-alias vupv="vagrant up --provider virtualbox"
-alias vh="vagrant halt"
-alias vs="vagrant ssh"
-alias vgs="vagrant global-status"
-
 
 # ------------------------------------------------------------------------
 # Docker
@@ -176,6 +165,13 @@ alias vgs="vagrant global-status"
 alias dcu="docker compose up"
 alias dcd="docker compose down"
 
+
+
+# ------------------------------------------------------------------------
+# Python
+# ------------------------------------------------------------------------
+
+alias activate="[ -f .venv/bin/activate ] || python3 -m venv .venv ; source .venv/bin/activate"
 
 
 # ------------------------------------------------------------------------
@@ -232,24 +228,24 @@ alias cvps="composer phpstan"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
 # ------------------------------------------------------------------------
 
-# Bash users need these definitions here.
 alias ga="git add"
 alias gcam="git commit -a -m"
+alias gcae="git commit --allow-empty -m"
 alias gcm="git commit -m"
 alias gco="git checkout"
 alias gst="git status"
 alias gd="git diff"
 
-# Carsten's own
-alias gits="git status"
-alias gpom="git push origin master"
-alias gpod="git push origin develop"
-alias pushom="git push origin master"
-alias pushod="git push origin develop"
-alias pullom="git pull origin master"
-alias pullod="git pull origin develop"
+# hacky workflow shortcuts
 alias gfp="git push && gco master && gm develop && git push && gco develop"
 alias gfp2="git push && gco main && gm develop && git push && gco develop"
+
+# ------------------------------------------------------------------------
+# Git CLI
+# ------------------------------------------------------------------------
+alias ghi="gh issue"
+alias ghic="gh issue create"
+alias ghiv="gh issue view"
 
 # ------------------------------------------------------------------------
 # Git Flow

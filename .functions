@@ -1,0 +1,12 @@
+# .functions
+
+md2html() {
+  for src in "$@"; do
+	out="${src%.*}.html"
+	# pandoc -s --from=markdown --to=html "$src" > "$out"
+	# pandoc --from=markdown --to=html "$src" > "$out"
+	pandoc -o "$out" "$src"
+	echo "→ $out"
+  done
+}
+export md2html

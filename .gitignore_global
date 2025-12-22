@@ -114,15 +114,20 @@ vendor
 node_modules
 config.json
 config.yaml
-.htaccess
 phpunit.xml
-.phpunit.*
+.env
+.htaccess
+
+
+# Silver searcher
+.hgignore
 
 # ------------------------------------------------------------------------
 # Workflow files
 # ------------------------------------------------------------------------
 
+.vscode
+.unlighthouse
+.phpunit.*
 .php_cs.cache
 _schrott
-tests/build
-build
