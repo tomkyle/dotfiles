@@ -80,6 +80,7 @@ BACKUP_DIR="${DOTFILES_DIR}/backups"
 declare -a COMMON_DOTFILES=(
 	"${DOTFILES_DIR}/.ackrc"
 	"${DOTFILES_DIR}/.aliases"
+	"${DOTFILES_DIR}/.functions"
 	"${DOTFILES_DIR}/.bash_prompt"
 	"${DOTFILES_DIR}/.editorconfig"
 	"${DOTFILES_DIR}/.exports"
