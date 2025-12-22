@@ -29,6 +29,13 @@ indent_size = 2
 indent_style = space
 indent_size = 4
 
+[*.R]
+indent_style = space
+indent_size = 2
+
+[*.go]
+indent_style = tab
+
 [*.php]
 indent_style = space
 indent_size = 4
@@ -71,7 +78,11 @@ trim_trailing_whitespace = false
 [{.gitignore,.gitignore_global}]
 trim_trailing_whitespace = false
 
-[{package.json,.travis.yml,.scrutinizer.yml}]
+[{composer.json,package.json,.travis.yml,.scrutinizer.yml}]
 indent_style = space
 indent_size = 2
+
+[{phpstan.neon.dist,phpunit.xml.dist}]
+indent_style = space
+indent_size = 4
 
