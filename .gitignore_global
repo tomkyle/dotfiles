@@ -114,9 +114,10 @@ vendor
 node_modules
 config.json
 config.yaml
-.htaccess
-.phpunit.*
 phpunit.xml
+.env
+.htaccess
+
 
 # Silver searcher
 .hgignore
@@ -125,5 +126,8 @@ phpunit.xml
 # Workflow files
 # ------------------------------------------------------------------------
 
+.vscode
+.unlighthouse
+.phpunit.*
 .php_cs.cache
 _schrott
