@@ -15,6 +15,7 @@ DOTFILES_PATHS="$HOME/.paths"
 DOTFILES_LESS="$HOME/.lessrc"
 DOTFILES_EXPORTS="$HOME/.exports"
 DOTFILES_ALIASES="$HOME/.aliases"
+DOTFILES_FUNCTIONS="$HOME/.functions"
 DOTFILES_GITFLOW_COMPLETION="$HOME/.git-flow-completion.zsh"
 
 
@@ -177,13 +178,13 @@ echo;
 # ZSH_DISABLE_COMPFIX=true
 
 
-# NVM is not officially supported with Homebrew by manufacturer.
-#
-export NVM_DIR="$HOME/.nvm"
 
-### DISABLED due to performance problems on startup?
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+### Added 2025/03/13
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 
 
 # GH completiomns for zsh
@@ -254,6 +255,9 @@ source $ZSH/oh-my-zsh.sh
 # Alias definitions.
 [[ -f "${DOTFILES_ALIASES}" ]] && source "${DOTFILES_ALIASES}"
 
+# Function definitions.
+[[ -f "${DOTFILES_FUNCTIONS}" ]] && source "${DOTFILES_FUNCTIONS}"
+
 # LESS pager config
 [[ -f "${DOTFILES_LESS}" ]] && source "${DOTFILES_LESS}"
 
@@ -265,10 +269,18 @@ source $ZSH/oh-my-zsh.sh
 [[ -f "${DOTFILES_GITFLOW_COMPLETION}" ]] && source "${DOTFILES_GITFLOW_COMPLETION}"
 
 
-# Outro
+# OUTRO
 unset DOTFILES_PATHS DOTFILES_LESS DOTFILES_ALIASES DOTFILES_GITFLOW_COMPLETION;
 
 
+# ------------------------------------------------------------------------
+# DOCKER
+# ------------------------------------------------------------------------
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/carsten/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
 
 
-test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
